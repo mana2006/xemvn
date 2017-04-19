@@ -7,7 +7,7 @@
     <meta name="author" content="hungnguyen">
     <meta name="keyword" content="Bootstrap, Responsive">
     <title>Xemvn</title>
-    {{--{!! Html::script('js/jquery.js') !!}--}}
+    {!! Html::style('css/bootstrap.min.css') !!}
 </head>
 <body>
 <section id="container" class="">
@@ -18,8 +18,9 @@
         </section>
     </section>
 </section>
-{{--{!! Html::script('js/jquery.js') !!}--}}
-{{--{!! Html::script('js/jquery-ui-1.10.4.min.js') !!}--}}
+{!! Html::script('js/jquery-3.1.1.slim.min.js') !!}
+{!! Html::script('js/tether.min.js') !!}
+{!! Html::script('js/bootstrap.min.js') !!}
 
 </body>
 </html>
