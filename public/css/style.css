@@ -1,7 +1,79 @@
-#nav_icon {
-    margin: 10px;
+body {
+    font-family: arial,verdana,serif;
 }
 
-#nav_logo {
-    margin: 10px;
+.container {
+    font-size: 16px;
+}
+
+.navbar {
+    height:40%;
+    font-family: arial,verdana,serif;
+}
+
+.btn-xs btn-outline-primary {
+    border: 1px solid black !important;
+    text-shadow: 0 -1px rgba(0, 0, 0, .2) !important;
+}
+
+.navbar-nav #li_nav_bar {
+    float: right;
+}
+
+#main-content {
+    margin-top: 10%;
+}
+
+.tip {
+    background: #FF9;
+    border: 1px solid #E6DB55;
+    padding: 1% 2%;
+    font-size: 14px;
+    max-height: 20%;
+}
+
+.spaceBottom {
+    background-color: #00A5F0;
+    font-size: 70%;
+    font-weight:bold;
+    margin-bottom:10%;
+    text-shadow: 0.5px 0.5px;
+}
+
+.top_fun {
+    align:left;
+    background: lightgray;
+    background-image: url("/public/img/smile_icon.png");
+    border-radius: 5px;
+}
+
+.white_space {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+li .inline {
+    display: inline;
+}
+
+#main-content {
+    margin-top: 1%;
+}
+
+@media (max-width: 850px) {
+    .spaceBottom {
+        padding:2px 4px;
+        font-size:70%;
+        line-height: 1;
+        border-radius:3px;
+    }
+}
+
+.in_line {
+    display: inline;
+}
+
+.link {
+    text-decoration: none !important;
 }

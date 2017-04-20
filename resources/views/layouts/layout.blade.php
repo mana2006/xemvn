@@ -8,13 +8,15 @@
     <meta name="keyword" content="Bootstrap, Responsive">
     <title>Xemvn</title>
     {!! Html::style('css/bootstrap.min.css') !!}
+    {!! Html::style('css/style.css') !!}
+    {!! Html::style('css/font-awesome.min.css') !!}
 </head>
 <body>
 <section id="container" class="">
     @include('layouts.navbar.nar_bar')
     <section id="main-content">
         <section class="wrapper">
-            @yield('content')
+            @include('layouts.body.body')
         </section>
     </section>
 </section>
