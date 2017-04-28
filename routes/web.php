@@ -12,5 +12,41 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.layout');
+    return view('layouts.body.index');
+});
+
+Route::get('/unread', function() {
+    return view('layouts.body.unread');
+});
+
+Route::get('/comment', function() {
+    return view('layouts.body.comment');
+});
+
+Route::get('/hot', function() {
+    return view('layouts.body.hot');
+});
+
+Route::get('/login', function() {
+    return view('layouts.body.login');
+});
+
+Route::get('/old', function() {
+    return view('layouts.body.old');
+});
+
+Route::get('/rank_top', function() {
+    return view('layouts.body.rank_top');
+});
+
+Route::get('/troll_images', function() {
+    return view('layouts.body.troll_images');
+});
+
+Route::get('/uploads', function() {
+    return view('layouts.body.uploads');
+});
+
+Route::get('/videos', function() {
+    return view('layouts.body.videos');
 });

@@ -1,11 +1,29 @@
+/*
+    content
+*/
 body {
     font-family: arial,verdana,serif;
+}
+
+#main-content {
+    margin-top: 10%;
 }
 
 .container {
     font-size: 16px;
 }
 
+.tip {
+    background: #FF9;
+    border: 1px solid #E6DB55;
+    padding: 1% 2%;
+    font-size: 14px;
+    max-height: 20%;
+}
+
+/*
+    nav
+*/
 .navbar {
     height:40%;
     font-family: arial,verdana,serif;
@@ -20,16 +38,50 @@ body {
     float: right;
 }
 
-#main-content {
-    margin-top: 10%;
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
 }
 
-.tip {
-    background: #FF9;
-    border: 1px solid #E6DB55;
-    padding: 1% 2%;
-    font-size: 14px;
-    max-height: 20%;
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: darkgray;
+    padding: 0px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: dimgray;
+    color: white;
+}
+
+.dropdown-upload:hover {
+    cursor: pointer;
+    background-color: #3e8e41;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #292b2c;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+/*
+    right content
+*/
+
+.right_content {
+    /*width: 100px;*/
+    margin-left: 0%;
 }
 
 .spaceBottom {
@@ -37,14 +89,12 @@ body {
     font-size: 70%;
     font-weight:bold;
     margin-bottom:10%;
-    text-shadow: 0.5px 0.5px;
+    text-shadow: 0.3px 0.2px;
 }
 
 .top_fun {
-    align:left;
     background: lightgray;
-    background-image: url("/public/img/smile_icon.png");
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .white_space {
@@ -61,7 +111,7 @@ li .inline {
     margin-top: 1%;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .spaceBottom {
         padding:2px 4px;
         font-size:70%;
@@ -77,3 +127,75 @@ li .inline {
 .link {
     text-decoration: none !important;
 }
+
+.top_fun_div {
+    float: left;
+}
+
+@media (max-width: 900px) {
+    .top_fun_div {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .top_fun_div {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .top_fun_div {
+        width: 50%;
+    }
+    .spaceBottom {
+        padding:2px 4px;
+        font-size:70%;
+        line-height: 1;
+        border-radius:3px;
+    }
+}
+
+.header_top_fun {
+    margin-left: 0em;
+    width: 100%;
+}
+
+@media (max-width: 320px) {
+    .top_fun_div {
+        width: 50%;
+    }
+}
+
+.advertise {
+    background: lightgray;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+}
+
+.clip_hot {
+    background: lightgray;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+}
+
+.title_icon {
+    float: left;
+}
+
+.clip_icon {
+    /*margin-top: 10%;*/
+    float: left;
+    height: 100%;
+    width: 25%;
+}
+
+.maybe_like {
+    background: lightgray;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+}
+
