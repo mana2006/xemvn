@@ -1,6 +1,7 @@
 <!--Start right content-->
 <div class="col-md-4 right_content">
-    <a class="btn btn-info spaceBottom" style="color: white; cursor:pointer;" title="Click để bắt đầu chia sẻ những bức ảnh vui!">Click để bắt đầu chia sẻ những bức ảnh vui!</a>
+    <a class="btn btn-info spaceBottom" style="color: white; cursor:pointer;"
+       title="Click để bắt đầu chia sẻ những bức ảnh vui!">Click để bắt đầu chia sẻ những bức ảnh vui!</a>
     <div class="row top_fun"><!--Start class top_fun-->
         <div class="row header_top_fun" align="left">
             <div class="col-md-6 small top_fun_div left">
@@ -78,14 +79,16 @@
     </div><!--End class top_fun-->
 
     <div class="row advertise">
-        <div class="col-md-10" align="left">
+        <div class="col-md-12" align="left">
             <b>Ủng hộ xemvn.app nhé bạn ^^</b>
         </div>
         <div class="clearfix">
 
         </div>
-        <div class="col-md-10">
-            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+        <div class="col-md-8">
+            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"
+                 data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+            Like để xem thêm
         </div>
     </div>
 
