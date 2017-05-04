@@ -27,9 +27,10 @@ Route::get('/hot', function() {
     return view('layouts.body.hot');
 });
 
-Route::get('/login', function() {
-    return view('layouts.body.login');
-});
+Route::get('/login', 'Auth\LoginController@getLogin');
+
+Route::post('/login', 'Auth\LoginController@postLogin');
+
 
 Route::get('/old', function() {
     return view('layouts.body.old');

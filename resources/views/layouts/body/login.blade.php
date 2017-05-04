@@ -2,24 +2,34 @@
 
 @section('content')
     <div class="col-md-8 text-left">
-        <h6><b>Ảnh mới chế</b></h6>
-        <div class="tip">
-            <b>Mẹo: Ấn hotkey</b> ← và → hoặc Z và X để duyệt ảnh nhanh hơn
-        </div>
+        <h5>Đăng nhập</h5>
+        <form class="form-login" action="{{ url('/login') }}" method="POST" role="form">
+            @if($errors->has('errorlogin'))
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{$errors->first('errorlogin')}}
+                </div>
+            @endif
+            <b><label>Email</label> <span class="red">*</span></b>
+            <div class="form-group">
+                <input class="form-control input-login" type="text" name="email">
+            </div>
+            @if($errors->has('email'))
+                <p style="color:red">{{$errors->first('email')}}</p>
+            @endif
+            <b><label>Mật khẩu</label> <span class="red">*</span></b>
+            <div class="form-group">
+                <input class="form-control input-login" type="password" name="password">
+            </div>
+            @if($errors->has('password'))
+                <p style="color:red">{{$errors->first('password')}}</p>
+            @endif
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="submit" name="login" class="btn btn-info" value="Đăng nhập">
+        </form>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p>
-        <p>
-            This is some text. This is some text. This is some text. This is some text. This is some text. This is some
-            text. This is some text. This is some text. This is some text. This is some text. This is some text. This is
-            some text.
-        </p>
-        <hr>
-        <h3>Test</h3>
-        <p>Lorem ipsum...</p>
+        <div class="login-help">
+            <a class="login-help" href="#">Đăng ký</a> - <a class="login-help" href="#">Quên mật khẩu</a>
+        </div>
     </div>
 @endsection

@@ -60,10 +60,17 @@
                             top<img id="nav_icon" src="{!! URL::to('/img/quiznhe.png') !!}"></a>
                     </li>
                     <div class="clearfix"></div>
-                    <a class="nav-link" href="/login">
-                        <button class="btn-xs btn-outline-secondary btn_login" type="button">Đăng nhập</button>
-                    </a>
+                    @if(Session::getId())
+
+                        <img href="{!! url::to('img/smile_user.jpg') !!}"/>
+                    @else
+                        <a class="nav-link" href="/login">
+                            <button class="btn-xs btn-outline-secondary btn_login" type="button">Đăng nhập</button>
+                        </a>
+                    @endif
+                    
                 </ul>
+
             </div>
         </div>
         </div>
