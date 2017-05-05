@@ -86,8 +86,8 @@
 
         </div>
         <div class="col-md-8">
-            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"
-                 data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+            {{--<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"--}}
+                 {{--data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>--}}
             Like để xem thêm
         </div>
     </div>

@@ -31,6 +31,8 @@ Route::get('/login', 'Auth\LoginController@getLogin');
 
 Route::post('/login', 'Auth\LoginController@postLogin');
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
 
 Route::get('/old', function() {
     return view('layouts.body.old');

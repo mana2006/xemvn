@@ -18,7 +18,7 @@
     <section id="main-content">
         <section class="wrapper">
             <div class="container text-center">
-                <div class="row">
+                <div class="row wrapper_content">
                     @yield('content')
                     @include('layouts.right_content.right_content')
                 </div>
@@ -42,4 +42,8 @@
 {!! Html::script('js/bootstrap.min.js') !!}
 
 </body>
+
+<footer class="container">
+    
+</footer>
 </html>

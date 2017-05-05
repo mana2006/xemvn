@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Validator;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -29,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -74,5 +76,11 @@ class LoginController extends Controller
                 return redirect()->back()->withInput()->withErrors($errors);
             }
         }
+    }
+
+    public function getLogout() {
+        Auth::logout();
+        Session::flush();
+        return view('/');
     }
 }
