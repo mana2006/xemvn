@@ -73,7 +73,6 @@
                         </a>
                     </li>
                 @endif
-                
             </ul>
         </div>
     </nav>
