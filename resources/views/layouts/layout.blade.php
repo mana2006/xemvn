@@ -20,7 +20,14 @@
             <div class="container text-center">
                 <div class="row wrapper_content">
                     @yield('content')
-                    @include('layouts.right_content.right_content')
+                    @if(!Auth::guest() && Request::is('upload_videos') || !Auth::guest() && Request::is('upload_images'))
+                        @include('layouts.right_content.right_content_uploads')
+                    @elseif (!Auth::guest() && strpos(Request::url(), 'my_images') || !Auth::guest() && strpos(Request::url(), 'my_videos'))
+                        @include('layouts.right_content.right_content_mypage')
+                    @else
+                        @include('layouts.right_content.right_content')
+                    @endif
+                    
                 </div>
             </div>
         </section>

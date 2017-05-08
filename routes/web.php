@@ -11,6 +11,11 @@
 |
 */
 
+/*
+ * content
+ * 
+ * */
+
 Route::get('/', function () {
     return view('layouts.body.index');
 });
@@ -21,6 +26,10 @@ Route::get('/unread', function() {
 
 Route::get('/comment', function() {
     return view('layouts.body.comment');
+});
+
+Route::get('/videos', function() {
+    return view('layouts.body.videos');
 });
 
 Route::get('/hot', function() {
@@ -46,10 +55,24 @@ Route::get('/troll_images', function() {
     return view('layouts.body.troll_images');
 });
 
-Route::get('/uploads', function() {
-    return view('layouts.body.uploads');
+Route::get('/upload_images', function() {
+    return view('layouts.body.upload_images');
 });
 
-Route::get('/videos', function() {
-    return view('layouts.body.videos');
+Route::get('/upload_videos', function() {
+    return view('layouts.body.upload_videos');
 });
+
+/*
+ * url mypage
+ * */
+
+Route::get('/my_images', function () {
+    return view('layouts.mypage.my_images');
+});
+
+Route::get('/my_videos', function () {
+    return view('layouts.mypage.my_videos');
+});
+
+

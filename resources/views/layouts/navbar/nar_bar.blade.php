@@ -36,10 +36,10 @@
                     <a class="nav-link {!! (Request::is('old')) ? "active" : "" !!}" href="/old">Cũ xem</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link {!! (Request::is('uploads')) ? "active" : "" !!}" href="/uploads"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Đăng bài</a>
+                    <a class="nav-link {!! (Request::is('uploads')) ? "active" : "" !!}"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Đăng bài</a>
                     <div class="dropdown-content">
-                        <a href="#">Đăng ảnh</a>
-                        <a href="#">Đăng videos</a>
+                        <a href="/upload_images">Đăng ảnh</a>
+                        <a href="/upload_videos">Đăng videos</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -59,7 +59,7 @@
                             <img id="nav_logo" src="{!! url::to('img/smile_user.jpg') !!}"/>
                         </a>
                         <div class="dropdown-content">
-                            <a href="#">Ảnh của bạn</a>
+                            <a href="/my_images">Ảnh của bạn</a>
                             <a href="#">Ảnh yêu thích</a>
                             <a href="#">Thông tin cá nhân</a>
                             <a href="#">Đổi mật khẩu</a>

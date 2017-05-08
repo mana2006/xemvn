@@ -42,12 +42,20 @@ body {
     color: red;
 }
 
+.pink {
+    color: #BA0068;
+}
+
 .form-login {
     font-size: 13px;
 }
 
 .input-login {
     width: 35%;
+}
+
+.input-upload {
+    width: 65%;
 }
 
 /*
@@ -103,6 +111,8 @@ body {
     margin-left: 335%;
 }
 
+
+#DEDEDE
 /*
         login
 */
@@ -112,16 +122,14 @@ body {
     font-size: 13px;
 }
 
-.login-help a {
-    text-decoration: none;
+.login-help a, .none_decorate {
+    text-decoration: none !important;
 }
 
 .btn_login {
     border-radius: 5px;
-    /*margin-left: 280%;*/
     width: 105%;
 }
-
 
 /*
     dropdown
@@ -246,6 +254,23 @@ li .inline {
     .text_content {
         padding-left: 10%;
     }
+    
+    .content_upload {
+        font-size: 80%;
+    }
+
+    .content_upload_1 {
+        padding:0 5% 0 5%;
+        text-align: left;
+        width: 115%;
+        font-size: 95%;
+    }
+
+    .content_upload_2 {
+        width: 90%;
+        text-align: left;
+        font-size: 95%;
+    }
 }
 
 @media (max-width: 1020px) {
@@ -259,6 +284,19 @@ li .inline {
 
     aside{
         font-size: 85%;
+    }
+
+    .content_upload_1 {
+        padding:0 5% 0 5%;
+        text-align: left;
+        width: 115%;
+        font-size: 90%;
+    }
+
+    .content_upload_2 {
+        width: 90%;
+        text-align: left;
+        font-size: 90%;
     }
 }
 
@@ -276,6 +314,23 @@ li .inline {
         border-radius: 5px;
         margin-left: 0%;
         width: 18%;
+    }
+
+    .content_upload {
+        font-size: 73%;
+    }
+
+    .content_upload_1 {
+        padding:0 5% 0 5%;
+        text-align: left;
+        width: 115%;
+        font-size: 73%;
+    }
+
+    .content_upload_2 {
+        width: 90%;
+        text-align: left;
+        font-size: 73%;
     }
 }
 
@@ -310,19 +365,25 @@ li .inline {
         line-height: 1;
         border-radius: 3px;
     }
-
-    
 }
 
-.header_top_fun {
-    margin-left: 0em;
-    width: 100%;
+@media (max-width: 576px) {
+    .right_a_tag {
+        margin-top: -25px;
+        font-size: 50%;
+    }
 }
 
 @media (max-width: 320px) {
     .top_fun_div {
         width: 50%;
     }
+}
+
+
+.header_top_fun {
+    margin-left: 0em;
+    width: 100%;
 }
 
 .advertise {
@@ -369,3 +430,50 @@ li .inline {
     margin-left: -10%;
 }
 
+.tip_uploader {
+    margin-top: 0%;
+    padding:10px 0 10px 0;
+    margin-left: 0px;
+    background: #FF9;
+    border-radius: 10px;
+}
+
+.b_upload {
+    padding-top:1%;
+    margin-left: 5%;
+    float: left;
+}
+
+.content_upload_1 {
+    padding:0 5% 0 5%;
+    text-align: left;
+    width: 115%;
+}
+
+.content_upload_2 {
+    width: 90%;
+    text-align: left;
+}
+
+.content_mypage_image {
+    margin-top: 0%;
+    padding:10px 10px 10px 10px;
+    margin-left: 0px;
+    background: #DEDEDE;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.mypage_infor {
+    width: 95%;
+    padding: 10px 10px 10px 10px;
+}
+
+.mypage_xemvn {
+    padding: 0px 10px 10px 10px;
+}
+
+.img_infor {
+    width: 20%;
+    float: left;
+}

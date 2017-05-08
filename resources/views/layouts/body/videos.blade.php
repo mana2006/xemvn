@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-8 text-left">
-        <h6><b>Clip mới</b></h6>
+        <h6><b>Ảnh Hot</b></h6>
         <div class="tip">
             <b>Mẹo: Ấn hotkey</b> ← và → hoặc Z và X để duyệt ảnh nhanh hơn
         </div>
