@@ -60,9 +60,9 @@
                         </a>
                         <div class="dropdown-content">
                             <a href="/my_images">Ảnh của bạn</a>
-                            <a href="#">Ảnh yêu thích</a>
-                            <a href="#">Thông tin cá nhân</a>
-                            <a href="#">Đổi mật khẩu</a>
+                            <a href="/my_favo_images">Ảnh yêu thích</a>
+                            <a href="/my_infor">Thông tin cá nhân</a>
+                            <a href="/my_pass">Đổi mật khẩu</a>
                             <a href="/logout">Thoát</a>
                         </div>
                     </li>

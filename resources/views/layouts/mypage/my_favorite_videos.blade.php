@@ -7,7 +7,7 @@
                 <h6><b>Ảnh yêu thích</b></h6>
             </div>
             <div class="col-sm-6 text-right right_a_tag">
-                <h6><b><a class="none_decorate" href="/my_favo_videos">Videos yêu thích</a></b></h6>
+                <h6><b><a class="none_decorate" href="/my_favo_images">Ảnh yêu thích</a></b></h6>
             </div>
         </div>
         <div class="row">

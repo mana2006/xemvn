@@ -220,7 +220,7 @@ li .inline {
     }
 
     .spaceBottom {
-        padding: 2px 4px;
+        padding: 2px 4px 6px;
         font-size: 60%;
         line-height: 1;
         border-radius: 3px;

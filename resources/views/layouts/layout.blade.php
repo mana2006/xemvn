@@ -14,7 +14,7 @@
 </head>
 <body>
 <section id="container" class="">
-    @include('layouts.navbar.nar_bar')
+    @include('layouts.navbar.nav_bar')
     <section id="main-content">
         <section class="wrapper">
             <div class="container text-center">
@@ -27,7 +27,6 @@
                     @else
                         @include('layouts.right_content.right_content')
                     @endif
-                    
                 </div>
             </div>
         </section>
