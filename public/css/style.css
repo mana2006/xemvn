@@ -1,0 +1,479 @@
+/*
+    content
+*/
+body {
+    font-family: arial, verdana, serif;
+}
+
+#main-content {
+    margin-top: 1.5%;
+}
+
+.container {
+    font-size: 16px;
+}
+
+.tip {
+    background: #FF9;
+    border: 1px solid #E6DB55;
+    padding: 1% 2%;
+    font-size: 12px;
+    max-height: 20%;
+}
+
+.main_content {
+    padding-top: 3%;
+}
+
+.text_content {
+    padding-left: 0%;
+}
+
+.text_content .uploader {
+    font-size: 70%;
+    padding-bottom: 3%;
+}
+
+.fb_iframe_widget {
+    margin-left: 4%;
+}
+
+.red {
+    color: red;
+}
+
+.pink {
+    color: #BA0068;
+}
+
+.form-login {
+    font-size: 13px;
+}
+
+.input-login {
+    width: 35%;
+}
+
+.input-upload {
+    width: 65%;
+}
+
+/*
+    nav
+*/
+.navbar {
+    height: 40%;
+    font-family: arial, verdana, serif;
+}
+
+.btn-xs btn-outline-primary {
+    border: 1px solid black !important;
+    text-shadow: 0 -1px rgba(0, 0, 0, .2) !important;
+}
+
+.navbar-nav #li_nav_bar {
+    float: right;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.ul_navbar {
+    margin-left: 14%;
+}
+
+#nav_logo {
+    width: 30%;
+    
+}
+
+#mail_logo {
+    background: url("../img/message_icon.png");
+    width: 34px;
+    margin-top : 7px;
+}
+
+#mail_logo:hover {
+    background: url("../img/message_icon.png");
+    background-position: 0% 30px;
+    width: 34px;
+    margin-top : 7px;
+}
+
+
+
+#nav_icon_user {
+    width: 30%;
+    height: 90%;
+    margin-left: 335%;
+}
+
+
+#DEDEDE
+/*
+        login
+*/
+
+.login-help{
+    padding: 10px 0 0 0;
+    font-size: 13px;
+}
+
+.login-help a, .none_decorate {
+    text-decoration: none !important;
+}
+
+.btn_login {
+    border-radius: 5px;
+    width: 105%;
+}
+
+/*
+    dropdown
+*/
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: darkgray;
+    padding: 0px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: dimgray;
+    color: white;
+}
+
+.dropdown-upload:hover {
+    cursor: pointer;
+    background-color: #3e8e41;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #292b2c;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/*
+    right content
+*/
+
+.right_content {
+    margin-left: 0%;
+}
+
+.spaceBottom {
+    background-color: #00A5F0;
+    font-size: 90%;
+    font-weight: bold;
+    margin-bottom: 10%;
+    text-shadow: 0.2px 0.1px;
+    width: 105%;
+}
+
+.top_fun {
+    margin-top: -20px;
+    background: lightgray;
+    border-radius: 10px;
+    width: 105%;
+    margin-left: 0px;
+}
+
+.white_space {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+li .inline {
+    display: inline;
+}
+
+
+
+.in_line {
+    display: inline;
+}
+
+.link {
+    text-decoration: none !important;
+}
+
+.top_fun_div {
+    float: left;
+}
+
+@media (max-width: 1231px) {
+    .top_fun_div {
+        width: 50%;
+    }
+
+    .spaceBottom {
+        padding: 2px 4px 6px;
+        font-size: 60%;
+        line-height: 1;
+        border-radius: 3px;
+    }
+
+    .btn_login {
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    #nav_icon_user {
+
+        margin-left: 150%;
+    }
+
+    .ul_navbar {
+        font-size: 84%;
+        margin-left: 3%;
+    }
+
+    #mail_logo {
+        background: url("../img/message_icon.png");
+        background-position: 0% -15%;
+        width: 34px;
+        margin-top : 5px;
+    }
+
+}
+
+@media (max-width: 1199px) {
+    .text_content {
+        padding-left: 10%;
+    }
+    
+    .content_upload {
+        font-size: 80%;
+    }
+
+    .content_upload_1 {
+        padding:0 5% 0 5%;
+        text-align: left;
+        width: 115%;
+        font-size: 95%;
+    }
+
+    .content_upload_2 {
+        width: 90%;
+        text-align: left;
+        font-size: 95%;
+    }
+}
+
+@media (max-width: 1020px) {
+    .top_fun_div {
+        width: 50%;
+    }
+
+    #nav_logo {
+        width: 30%;
+    }
+
+    aside{
+        font-size: 85%;
+    }
+
+    .content_upload_1 {
+        padding:0 5% 0 5%;
+        text-align: left;
+        width: 115%;
+        font-size: 90%;
+    }
+
+    .content_upload_2 {
+        width: 90%;
+        text-align: left;
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 991px) {
+
+    #nav_logo {
+        width: 8%;
+    }
+
+    .img-responsive {
+        width: 120%;
+    }
+
+    .btn_login {
+        border-radius: 5px;
+        margin-left: 0%;
+        width: 18%;
+    }
+
+    .content_upload {
+        font-size: 73%;
+    }
+
+    .content_upload_1 {
+        padding:0 5% 0 5%;
+        text-align: left;
+        width: 115%;
+        font-size: 73%;
+    }
+
+    .content_upload_2 {
+        width: 90%;
+        text-align: left;
+        font-size: 73%;
+    }
+}
+
+@media (max-width: 900px) {
+    .top_fun_div {
+        width: 50%;
+    }
+
+    .spaceBottom {
+        padding: 2px 4px;
+        font-size: 70%;
+        line-height: 1;
+        border-radius: 3px;
+    }
+}
+
+@media (max-width: 767px) {
+    .img-responsive {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .top_fun_div {
+        width: 50%;
+    }
+
+    .spaceBottom {
+        padding: 2px 4px;
+        font-size: 70%;
+        line-height: 1;
+        border-radius: 3px;
+    }
+}
+
+@media (max-width: 576px) {
+    .right_a_tag {
+        margin-top: -25px;
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 320px) {
+    .top_fun_div {
+        width: 50%;
+    }
+}
+
+
+.header_top_fun {
+    margin-left: 0em;
+    width: 100%;
+}
+
+.advertise {
+    background: lightgray;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+    margin-left: 0%;
+}
+
+.clip_hot {
+    background: lightgray;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+    margin-left: 0%;
+}
+
+.title_icon {
+    float: left;
+}
+
+.clip_icon {
+    float: left;
+    height: 100%;
+    width: 25%;
+}
+
+.maybe_like {
+    background: lightgray;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+    margin-left: 0%;
+}
+
+.like_face {
+    text-align: left;
+    padding: 0px 10px;
+    height: 20px;
+}
+
+.fb-like {
+    margin-left: -10%;
+}
+
+.tip_uploader {
+    margin-top: 0%;
+    padding:10px 0 10px 0;
+    margin-left: 0px;
+    background: #FF9;
+    border-radius: 10px;
+}
+
+.b_upload {
+    padding-top:1%;
+    margin-left: 5%;
+    float: left;
+}
+
+.content_upload_1 {
+    padding:0 5% 0 5%;
+    text-align: left;
+    width: 115%;
+}
+
+.content_upload_2 {
+    width: 90%;
+    text-align: left;
+}
+
+.content_mypage_image {
+    margin-top: 0%;
+    padding:10px 10px 10px 10px;
+    margin-left: 0px;
+    background: #DEDEDE;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.mypage_infor {
+    width: 95%;
+    padding: 10px 10px 10px 10px;
+}
+
+.mypage_xemvn {
+    padding: 0px 10px 10px 10px;
+}
+
+.img_infor {
+    width: 20%;
+    float: left;
+}
