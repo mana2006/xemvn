@@ -36,11 +36,11 @@ Route::get('/hot', function() {
     return view('layouts.body.hot');
 });
 
-Route::get('/login', 'Auth\LoginController@getLogin');
+Route::get('/login', 'LoginController@getLogin');
 
-Route::post('/login', 'Auth\LoginController@postLogin');
+Route::post('/login', 'LoginController@postLogin');
 
-Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/logout', 'LoginController@getLogout');
 
 
 Route::get('/old', function() {
@@ -94,23 +94,32 @@ Route::get('/my_pass', function () {
 
 /*
  * admin
+ * 
  * */
 
-Route::group(['middleware' => 'web'], function () {
-    Route::get('/admin/login', 'AdminLoginController@getLogin');
 
-    Route::post('/admin/login', 'AdminLoginController@postLogin');
 
-    Route::get('/admin/logout', 'AdminLoginController@getLogoutAdmin');
+Route::group(['prefix' => 'admin', ], function () {
+    Route::get('login', 'AdminLoginController@getLogin');
 
-    Route::get('/admin/index', function () {
-        return view('admin.dashboard.dashboard');
+    Route::post('login', 'AdminLoginController@postLogin');
+
+    Route::get('logout', 'AdminLoginController@getLogout');
+    Route::group(['middleware' => 'authadmin'], function () {
+        Route::get('index',  function () {
+            return view('admin.dashboard.dashboard');
+        });
+    
     });
 });
 
 
 
 
-Route::resource('user', 'UserController');
-
-
+//Route::resource('user', 'UserController');
+//
+//
+//
+//Auth::routes();
+//
+//Route::get('/admin/login', 'HomeController@index')->name('home');

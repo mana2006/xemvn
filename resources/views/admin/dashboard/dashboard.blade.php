@@ -273,8 +273,10 @@
         </ul>
     </header>
 
+    
+    
     <div class="app-body">
-        <div class="sidebar">
+        <div class="sidebar">{{-----------------------------START SIDEBAR-------------------------------------}}
             <nav class="sidebar-nav">
                 <form>
                     <div class="form-group p-h mb-0">
@@ -290,20 +292,28 @@
                     <li class="nav-title">
                         Quản lý
                     </li>
+
                     <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> Thành viên</a>
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-user"></i> Quản trị viên</a>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)"><i class="icon-puzzle"></i> Danh sách thành viên</a>
+                                <a class="nav-link" href="javascript:void(0)"><i class="icon-user"></i> Danh sách quản trị viên</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-people"></i> Thành viên</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)"><i class="icon-people"></i> Danh sách thành viên</a>
                             </li>
                         </ul>
                     </li>
 
                 </ul>
             </nav>
-        </div>
-
-        </main>
+        </div>{{-----------------------------END SIDEBAR-------------------------------------}}
 
         <aside class="aside-menu">
             <ul class="nav nav-tabs" role="tablist">
@@ -592,6 +602,7 @@
         </aside>
 
     </div>
+
 
     <footer class="app-footer">
         <a href="#">Nguyễn Thanh Hùng</a> © 2017 copyright.

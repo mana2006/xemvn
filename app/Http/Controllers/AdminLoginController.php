@@ -25,15 +25,18 @@ class AdminLoginController extends Controller
      * @return void
      */
 
-    protected $redirectTo = '/admin/login';
-
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
     }
 
     public function getLogin() {
-        return view('admin.login.login');
+        if (!Auth::check()) {
+            return view('admin.login.login');
+        } else {
+            return redirect('admin/index');
+        }
+        
     }
 
     public function postLogin(Request $request) {
@@ -67,11 +70,9 @@ class AdminLoginController extends Controller
         }
     }
 
-    public function getLogoutAdmin() {
-        dd("aaa");
+    public function getLogout() {
         Auth::logout();
         Session::flush();
-
-        return view('admin.login.login');
+        return redirect('/admin/login');
     }
 }
