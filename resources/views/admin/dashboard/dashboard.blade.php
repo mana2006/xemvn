@@ -23,30 +23,19 @@
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item dropdown hidden-md-down">
                 <a class="nav-link nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-bell"></i>
-                    <span class="badge badge-pill badge-danger">5</span>
-                </a>
+                    <i class="icon-bell"></i> <span class="badge badge-pill badge-danger">5</span> </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
 
                     <div class="dropdown-header text-center">
                         <strong>You have 5 notifications</strong>
                     </div>
 
-                    <a href="#" class="dropdown-item">
-                        <i class="icon-user-follow text-success"></i> New user registered
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="icon-user-unfollow text-danger"></i> User deleted
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="icon-chart text-info"></i> Sales report is ready
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="icon-basket-loaded text-primary"></i> New client
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="icon-speedometer text-warning"></i> Server overloaded
-                    </a>
+                    <a href="#" class="dropdown-item"> <i class="icon-user-follow text-success"></i> New user registered
+                    </a> <a href="#" class="dropdown-item"> <i class="icon-user-unfollow text-danger"></i> User deleted
+                    </a> <a href="#" class="dropdown-item"> <i class="icon-chart text-info"></i> Sales report is ready
+                    </a> <a href="#" class="dropdown-item"> <i class="icon-basket-loaded text-primary"></i> New client
+                    </a> <a href="#" class="dropdown-item">
+                        <i class="icon-speedometer text-warning"></i> Server overloaded </a>
 
                     <div class="dropdown-header text-center">
                         <strong>Server</strong>
@@ -61,8 +50,7 @@
                                 <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </span>
                         <small class="text-muted">348 Processes. 1/4 Cores.</small>
-                    </a>
-                    <a href="#" class="dropdown-item">
+                    </a> <a href="#" class="dropdown-item">
                         <div class="text-uppercase mb-q">
                             <small><b>Memory Usage</b>
                             </small>
@@ -71,8 +59,7 @@
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                             </span>
                         <small class="text-muted">11444GB/16384MB</small>
-                    </a>
-                    <a href="#" class="dropdown-item">
+                    </a> <a href="#" class="dropdown-item">
                         <div class="text-uppercase mb-q">
                             <small><b>SSD 1 Usage</b>
                             </small>
@@ -87,9 +74,7 @@
             </li>
             <li class="nav-item dropdown hidden-md-down">
                 <a class="nav-link nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-list"></i>
-                    <span class="badge badge-pill badge-warning">15</span>
-                </a>
+                    <i class="icon-list"></i> <span class="badge badge-pill badge-warning">15</span> </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
 
                     <div class="dropdown-header text-center">
@@ -97,66 +82,48 @@
                     </div>
 
                     <a href="#" class="dropdown-item">
-                        <div class="small mb-q">Upgrade NPM &amp; Bower
-                            <span class="float-right">
+                        <div class="small mb-q">Upgrade NPM &amp; Bower <span class="float-right">
                                     <strong>0%</strong>
                                 </span>
                         </div>
                         <span class="progress progress-xs">
                                 <div class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                            </span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <div class="small mb-q">ReactJS Version
-                            <span class="float-right">
+                            </span> </a> <a href="#" class="dropdown-item">
+                        <div class="small mb-q">ReactJS Version <span class="float-right">
                                     <strong>25%</strong>
                                 </span>
                         </div>
                         <span class="progress progress-xs">
                                 <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <div class="small mb-q">VueJS Version
-                            <span class="float-right">
+                            </span> </a> <a href="#" class="dropdown-item">
+                        <div class="small mb-q">VueJS Version <span class="float-right">
                                     <strong>50%</strong>
                                 </span>
                         </div>
                         <span class="progress progress-xs">
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <div class="small mb-q">Add new layouts
-                            <span class="float-right">
+                            </span> </a> <a href="#" class="dropdown-item">
+                        <div class="small mb-q">Add new layouts <span class="float-right">
                                     <strong>75%</strong>
                                 </span>
                         </div>
                         <span class="progress progress-xs">
                                 <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <div class="small mb-q">Angular 2 Cli Version
-                            <span class="float-right">
+                            </span> </a> <a href="#" class="dropdown-item">
+                        <div class="small mb-q">Angular 2 Cli Version <span class="float-right">
                                     <strong>100%</strong>
                                 </span>
                         </div>
                         <span class="progress progress-xs">
                                 <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                            </span>
-                    </a>
+                            </span> </a>
 
-                    <a href="#" class="dropdown-item text-center">
-                        <strong>View all tasks</strong>
-                    </a>
+                    <a href="#" class="dropdown-item text-center"> <strong>View all tasks</strong> </a>
                 </div>
             </li>
             <li class="nav-item dropdown hidden-md-down">
                 <a class="nav-link nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-envelope-letter"></i>
-                    <span class="badge badge-pill badge-success">7</span>
-                </a>
+                    <i class="icon-envelope-letter"></i> <span class="badge badge-pill badge-success">7</span> </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
 
                     <div class="dropdown-header text-center">
@@ -176,11 +143,11 @@
                                 <small class="text-muted float-right mt-q">Just now</small>
                             </div>
                             <div class="text-truncate font-weight-bold">
-                                <span class="fa fa-exclamation text-danger"></span>Important message</div>
+                                <span class="fa fa-exclamation text-danger"></span>Important message
+                            </div>
                             <div class="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
                         </div>
-                    </a>
-                    <a href="#" class="dropdown-item">
+                    </a> <a href="#" class="dropdown-item">
                         <div class="message">
                             <div class="py-1 mr-1 float-left">
                                 <div class="avatar">
@@ -195,8 +162,7 @@
                             <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
                             <div class="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
                         </div>
-                    </a>
-                    <a href="#" class="dropdown-item">
+                    </a> <a href="#" class="dropdown-item">
                         <div class="message">
                             <div class="py-1 mr-1 float-left">
                                 <div class="avatar">
@@ -211,8 +177,7 @@
                             <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
                             <div class="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
                         </div>
-                    </a>
-                    <a href="#" class="dropdown-item">
+                    </a> <a href="#" class="dropdown-item">
                         <div class="message">
                             <div class="py-1 mr-1 float-left">
                                 <div class="avatar">
@@ -229,9 +194,7 @@
                         </div>
                     </a>
 
-                    <a href="#" class="dropdown-item text-center">
-                        <strong>View all messages</strong>
-                    </a>
+                    <a href="#" class="dropdown-item text-center"> <strong>View all messages</strong> </a>
                 </div>
             </li>
             <li class="nav-item hidden-md-down">
@@ -240,8 +203,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                    <span class="hidden-md-down">admin</span>
-                </a>
+                    <span class="hidden-md-down">admin</span> </a>
                 <div class="dropdown-menu dropdown-menu-right">
 
                     <div class="dropdown-header text-center">
@@ -273,8 +235,7 @@
         </ul>
     </header>
 
-    
-    
+
     <div class="app-body">
         <div class="sidebar">{{-----------------------------START SIDEBAR-------------------------------------}}
             <nav class="sidebar-nav">
@@ -285,7 +246,8 @@
                 </form>
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index"><i class="icon-speedometer"></i> Trang chủ <span class="badge badge-info">NEW</span></a>
+                        <a class="nav-link" href="/admin/index"><i class="icon-speedometer"></i> Trang chủ
+                            <span class="badge badge-info">NEW</span></a>
                     </li>
 
                     <li class="divider"></li>
@@ -294,19 +256,22 @@
                     </li>
 
                     <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-user"></i> Quản trị viên</a>
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-user"></i> Quản trị viên</a>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)"><i class="icon-user"></i> Danh sách quản trị viên</a>
+                                <a class="nav-link" href="javascript:void(0)"><i class="fa fa-user"></i> Danh sách quản trị viên</a>
                             </li>
                         </ul>
                     </li>
 
                     <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-people"></i> Thành viên</a>
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-users"></i> Thành viên</a>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)"><i class="icon-people"></i> Danh sách thành viên</a>
+                                <a class="nav-link" href="/admin/member/"><i class="fa fa-users"></i> Danh sách thành viên</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/member/create"><i class="fa fa-users"></i> Thêm thành viên</a>
                             </li>
                         </ul>
                     </li>
@@ -315,6 +280,12 @@
             </nav>
         </div>{{-----------------------------END SIDEBAR-------------------------------------}}
 
+        {{--------------------------------------START MAIN CONTENT----------------------------------------------------}}
+
+        @yield('content_main')
+
+
+        {{--------------------------------------END MAIN CONTENT------------------------------------------------------}}
         <aside class="aside-menu">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
@@ -339,8 +310,7 @@
                         <div class="avatar float-right">
                             <img src="img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
                         </div>
-                        <div>Meeting with
-                            <strong>Lucas</strong>
+                        <div>Meeting with <strong>Lucas</strong>
                         </div>
                         <small class="text-muted mr-1"><i class="icon-calendar"></i>&nbsp; 1 - 3pm</small>
                         <small class="text-muted"><i class="icon-location-pin"></i>&nbsp; Palo Alto, CA</small>
@@ -350,8 +320,7 @@
                         <div class="avatar float-right">
                             <img src="img/avatars/4.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
                         </div>
-                        <div>Skype with
-                            <strong>Megan</strong>
+                        <div>Skype with <strong>Megan</strong>
                         </div>
                         <small class="text-muted mr-1"><i class="icon-calendar"></i>&nbsp; 4 - 5pm</small>
                         <small class="text-muted"><i class="icon-social-skype"></i>&nbsp; On-line</small>
@@ -363,8 +332,7 @@
                     </div>
                     <hr class="transparent mx-1 my-0">
                     <div class="callout callout-danger m-0 py-1">
-                        <div>New UI Project -
-                            <strong>deadline</strong>
+                        <div>New UI Project - <strong>deadline</strong>
                         </div>
                         <small class="text-muted mr-1"><i class="icon-calendar"></i>&nbsp; 10 - 11pm</small>
                         <small class="text-muted"><i class="icon-home"></i>&nbsp; creativeLabs HQ</small>
@@ -389,7 +357,8 @@
                     <hr class="mx-1 my-0">
                     <div class="callout callout-success m-0 py-1">
                         <div>
-                            <strong>#10 Startups.Garden</strong>Meetup</div>
+                            <strong>#10 Startups.Garden</strong>Meetup
+                        </div>
                         <small class="text-muted mr-1"><i class="icon-calendar"></i>&nbsp; 1 - 3pm</small>
                         <small class="text-muted"><i class="icon-location-pin"></i>&nbsp; Palo Alto, CA</small>
                     </div>
@@ -512,8 +481,7 @@
                             <label class="switch switch-text switch-pill switch-success switch-sm float-right">
                                 <input type="checkbox" class="switch-input" checked="">
                                 <span class="switch-label" data-on="On" data-off="Off"></span>
-                                <span class="switch-handle"></span>
-                            </label>
+                                <span class="switch-handle"></span> </label>
                         </div>
                         <div>
                             <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
@@ -527,8 +495,7 @@
                             <label class="switch switch-text switch-pill switch-success switch-sm float-right">
                                 <input type="checkbox" class="switch-input">
                                 <span class="switch-label" data-on="On" data-off="Off"></span>
-                                <span class="switch-handle"></span>
-                            </label>
+                                <span class="switch-handle"></span> </label>
                         </div>
                         <div>
                             <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
@@ -542,8 +509,7 @@
                             <label class="switch switch-text switch-pill switch-success switch-sm float-right">
                                 <input type="checkbox" class="switch-input">
                                 <span class="switch-label" data-on="On" data-off="Off"></span>
-                                <span class="switch-handle"></span>
-                            </label>
+                                <span class="switch-handle"></span> </label>
                         </div>
                     </div>
 
@@ -554,8 +520,7 @@
                             <label class="switch switch-text switch-pill switch-success switch-sm float-right">
                                 <input type="checkbox" class="switch-input" checked="">
                                 <span class="switch-label" data-on="On" data-off="Off"></span>
-                                <span class="switch-handle"></span>
-                            </label>
+                                <span class="switch-handle"></span> </label>
                         </div>
                     </div>
 
@@ -605,8 +570,7 @@
 
 
     <footer class="app-footer">
-        <a href="#">Nguyễn Thanh Hùng</a> © 2017 copyright.
-        <span class="float-right">
+        <a href="#">Nguyễn Thanh Hùng</a> © 2017 copyright. <span class="float-right">
                 Powered by <a href="#">Nguyễn Thanh Hùng</a>
             </span>
     </footer>
@@ -614,24 +578,19 @@
     </body>
 
     {{--<!-- Bootstrap and necessary plugins -->--}}
-    <script src="js/libs/jquery.min.js"></script>
-    <script src="js/libs/tether.min.js"></script>
-    <script src="js/libs/bootstrap.min.js"></script>
-    <script src="js/libs/pace.min.js"></script>
-
+    <script src="{{URL::to('admin/js/libs/jquery.min.js')}}"></script>
+    <script src="{{URL::to('admin/js/libs/tether.min.js')}}"></script>
+    <script src="{{URL::to('admin/js/libs/bootstrap.min.js')}}"></script>
+    <script src="{{URL::to('admin/js/libs/pace.min.js')}}"></script>
 
     {{--<!-- Plugins and scripts required by all views -->--}}
-    <script src="js/libs/Chart.min.js"></script>
-
-
-
-
+    <script src="{{URL::to('admin/js/libs/Chart.min.js')}}"></script>
 
     {{--<!-- Plugins and scripts required by this views -->--}}
-    <script src="js/libs/toastr.min.js"></script>
-    <script src="js/libs/gauge.min.js"></script>
-    <script src="js/libs/moment.min.js"></script>
-    <script src="js/libs/daterangepicker.js"></script>
+    <script src="{{URL::to('admin/js/libs/toastr.min.js')}}"></script>
+    <script src="{{URL::to('admin/js/libs/gauge.min.js')}}"></script>
+    <script src="{{URL::to('admin/js/libs/moment.min.js')}}"></script>
+    <script src="{{URL::to('admin/js/libs/daterangepicker.js')}}"></script>
 
     </body>
 @endsection

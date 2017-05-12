@@ -109,14 +109,15 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('index',  function () {
             return view('admin.dashboard.dashboard');
         });
-    
+        
+        Route::resource('member', 'AdminMemberController');
     });
 });
 
 
 
 
-//Route::resource('user', 'UserController');
+//Route::resource('user', 'AdminUserController');
 //
 //
 //
