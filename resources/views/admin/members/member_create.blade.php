@@ -15,11 +15,19 @@
                             <div class="card-block">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <form id="create_member" method="POST" action="{{route('member.store')}}">
+                                        <div class="flash-message">
+                                            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                                                @if(Session::has('alert-' . $msg))
+
+                                                    <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                                                @endif
+                                            @endforeach
+                                        </div> <!-- end .flash-message -->
+                                        <form id="create_member" method="POST" action="{{route('member.store')}}" enctype="multipart/form-data">
                                             {{csrf_field()}}
                                             <div class="form-group">
                                                 <label class="form-control-label" for="lastname">Họ </label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Họ">
+                                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Họ" value="{{ old('lastname') }}" aria-describedby="lastname-error" aria-required="true" aria-invalid="true">
                                                 @if($errors->has('lastname'))
                                                     <div class="error">{{ $errors->first('lastname') }}</div>
                                                 @endif
@@ -27,15 +35,35 @@
 
                                             <div class="form-group">
                                                 <label class="form-control-label" for="firstname">Tên</label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Tên">
+                                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Tên" value="{{ old('firstname') }}">
                                                 @if($errors->has('firstname'))
                                                     <div class="error">{{ $errors->first('firstname') }}</div>
                                                 @endif
                                             </div>
 
                                             <div class="form-group">
+                                                <p>Avatar</p>
+                                                <label class="custom-file">
+                                                    <span class="custom-file-control"></span>
+                                                    <input type="file" id="file" class="custom-file-input"  name="upload_images">
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="email">Trạng thái</label><span class="error">(*)</span>
+                                                <select id="select" name="status" class="form-control" size="1">
+                                                    @foreach($listStatus as $status)
+                                                        <option value="{{ $status->id }}">{{$status->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @if($errors->has('email'))
+                                                    <div class="error">{{ $errors->first('email') }}</div>
+                                                @endif
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label class="form-control-label" for="email">Email</label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
                                                 @if($errors->has('email'))
                                                     <div class="error">{{ $errors->first('email') }}</div>
                                                 @endif

@@ -17,6 +17,12 @@ html {
   color: red;
 }
 
+.tr_show_image_member{
+    width:10%;
+}
+.show_image_member {
+    max-width: 100%;
+}
 body {
   margin: 0; }
 

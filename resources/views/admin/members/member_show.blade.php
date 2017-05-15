@@ -14,20 +14,33 @@
                         <table class="table table-striped table-bordered datatable">
                             <thead>
                             <tr>
+                                <th>Ảnh đại diện</th>
                                 <th>Tên thành viên</th>
                                 <th>Ngày đăng ký</th>
-                                <th>Quyền truy cập</th>
                                 <th>Trạng thái</th>
                                 <th>Thực thi</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($members as $member)
                             <tr>
-                                <td>Ajith Hristijan</td>
-                                <td>2012/03/01</td>
-                                <td>Member</td>
+                                @if($member->image)
+                                    <td style="width: 10%"><img style=" max-width: 100%;" src="{{ URL::to('/'.$member->image) }}"></td>
+                                @else
+                                    <td style="width: 10%"><img style=" max-width: 100%;" src="{{ URL::to('/img/smile_user.jpg') }}"></td>
+                                @endif
+                                <td>{{ $member->lastname . $member->firstname}}</td>
+                                <td>{{ $member->created_at }}</td>
                                 <td>
-                                    <span class="badge badge-warning">Pending</span>
+                                    @if($member->status == 1)
+                                        <span class="badge badge-warning">Pending</span>
+                                    @elseif($member->status == 2)
+                                        <span class="badge badge-success">Active</span>
+                                    @elseif($member->status == 3)
+                                        <span class="badge badge-default">Inactive</span>
+                                    @elseif($member->status == 4)
+                                        <span class="badge badge-danger">Banned</span>
+                                    @endif
                                 </td>
                                 <td>
                                     <a class="btn btn-success" href="#"> <i class="fa fa-search-plus "></i> </a>
@@ -37,12 +50,13 @@
                                     </a>
                                 </td>
                             </tr>
+                            @endforeach
                             </tbody>
                         </table>
+                        @include('admin.pagination.default', ['paginator' => $members])
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
 

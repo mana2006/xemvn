@@ -12,21 +12,23 @@ class StatusTableSeeder extends Seeder
      */
     public function run()
     {
-        Status::create([
+        Status::insert([
+            [
             'id' => '1',
             'name' => 'active'
-        ]);
-        Status::create([
-            'id' => '2',
-            'name' => 'inactive'
-        ]);
-        Status::create([
-            'id' => '3',
-            'name' => 'pending'
-        ]);
-        Status::create([
-            'id' => '4',
-            'name' => 'banned'
+            ],
+            [
+                'id' => '2',
+                'name' => 'inactive'
+            ],
+            [
+                'id' => '3',
+                'name' => 'pending'
+            ],
+            [
+                'id' => '4',
+                'name' => 'banned'
+            ]
         ]);
     }
 }
