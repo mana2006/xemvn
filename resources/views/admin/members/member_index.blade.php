@@ -33,20 +33,20 @@
                                 <td>{{ $member->created_at }}</td>
                                 <td>
                                     @if($member->status == 1)
-                                        <span class="badge badge-warning">Pending</span>
-                                    @elseif($member->status == 2)
                                         <span class="badge badge-success">Active</span>
-                                    @elseif($member->status == 3)
+                                    @elseif($member->status == 2)
                                         <span class="badge badge-default">Inactive</span>
+                                    @elseif($member->status == 3)
+                                        <span class="badge badge-warning">Pending</span>
                                     @elseif($member->status == 4)
                                         <span class="badge badge-danger">Banned</span>
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="btn btn-success" href="#"> <i class="fa fa-search-plus "></i> </a>
-                                    <a class="btn btn-info" href="#"> <i class="fa fa-edit "></i> </a>
-                                    <a class="btn btn-danger" href="#"> <i class="fa fa-trash-o "></i>
-
+                                    <a class="btn btn-success" href="{{ URL::to('/admin/member/'.$member->id) }}"> <i class="fa fa-search-plus "></i> </a>
+                                    <a class="btn btn-info" href="{{ URL::to('/admin/member/'.$member->id.'/edit/') }}"> <i class="fa fa-edit "></i> </a>
+                                    <a class="btn btn-danger" href="#">
+                                        <i class="fa fa-trash-o "></i>
                                     </a>
                                 </td>
                             </tr>

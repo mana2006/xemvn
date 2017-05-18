@@ -43,9 +43,21 @@
 
                                             <div class="form-group">
                                                 <p>Avatar</p>
+                                                <e></e><br><br>
                                                 <label class="custom-file">
                                                     <span class="custom-file-control"></span>
-                                                    <input type="file" id="file" class="custom-file-input"  name="upload_images">
+                                                    <input type="file" id="upload_images" class="custom-file-input"  name="upload_images">
+                                                    
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <p>Avatar</p>
+                                                <e1></e1><br><br>
+                                                <label class="custom-file">
+                                                    <span class="custom-file-control"></span>
+                                                    <input type="file" id="upload_images1" class="custom-file-input"  name="upload_images">
+
                                                 </label>
                                             </div>
 
@@ -53,14 +65,13 @@
                                                 <label class="form-control-label" for="email">Trạng thái</label><span class="error">(*)</span>
                                                 <select id="select" name="status" class="form-control" size="1">
                                                     @foreach($listStatus as $status)
-                                                        <option value="{{ $status->id }}">{{$status->name}}</option>
+                                                        <option value="{{ $status->id }}" {{ old('status') == $status->id ? "selected" : "" }}>{{$status->name}}</option>
                                                     @endforeach
                                                 </select>
-                                                @if($errors->has('email'))
-                                                    <div class="error">{{ $errors->first('email') }}</div>
-                                                @endif
                                             </div>
-
+<script>
+  
+</script>
                                             <div class="form-group">
                                                 <label class="form-control-label" for="email">Email</label><span class="error">(*)</span>
                                                 <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
@@ -89,7 +100,7 @@
 
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Đăng ký</button>&nbsp;&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-secondary" name="cacel" value="Cancel">Huỷ bỏ</button>
+                                                <button type="button" class="btn btn-secondary" name="cacel" value="Cancel" onclick="clearForm('create_member')">Huỷ bỏ</button>
                                             </div>
                                         </form>
                                     </div>
@@ -104,7 +115,5 @@
 
         </div>
     </main>
-
-
 
 @endsection
