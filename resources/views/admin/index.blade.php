@@ -38,22 +38,6 @@
     js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=514374418733627";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-//  function readURL(input, id) {
-//    if (input.files && input.files[0]) {
-//      var reader = new FileReader();
-//
-//      reader.onload = function (e) {
-//        $(id).attr('src', e.target.result);
-//      }
-////      if ($("img").next("#show_image").attr('src') == '#'){
-////        $('img').remove();
-////        $("e").append("<img width='20%' height='150px' id='show_image' src='#' alt='Your Avatar' />");
-////      }
-//      $("e").append("<img width='20%' height='150px' id='"+id+"' src='#' alt='Your Avatar' />");
-//      reader.readAsDataURL(input.files[0]);
-//      
-//    }
-//  }
 
   function readURL(input, id, tag) {
 
@@ -62,7 +46,6 @@
 
       reader.onload = function (e) {
         $('#'+id).attr('src', e.target.result);
-
       }
         if(!$("#"+id).length){
           $(tag).append("<img  width='20%' height='150px' id='" + id + "' src='#' alt='Your Avatar' />");
@@ -72,15 +55,10 @@
     }
   }
 
-  
-  
     $("#upload_images").change(function(){
     readURL(this, 'show_image', 'e');
   });
 
-  $("#upload_images1").change(function(){
-    readURL(this, 'show_image1', 'e1');
-  });
   
   function clearForm(id) {
     document.getElementById(id).reset();

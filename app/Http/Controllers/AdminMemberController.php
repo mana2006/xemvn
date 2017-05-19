@@ -71,14 +71,12 @@ class AdminMemberController extends Controller
 
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
-            $destinationPath = 'uploads/avatars'; // upload path
-            $extension = Input::file('upload_images')->getClientOriginalExtension(); // getting image extension
-            $fileName = date('Ymd_His') . '.' . $extension; // renameing image
-            Input::file('upload_images')->move($destinationPath, $fileName); // uploading file to given path
+            $fileName = $this->uploadImage('upload_images');
+
             Members::insert([
                 'lastname'      => $request->lastname,
                 'firstname'     => $request->firstname,
-                'image'         => 'uploads/avatars/' . $fileName,
+                'image'         => $fileName,
                 'email'         => $request->email,
                 'password'      => bcrypt($request->password),
                 'status'        => $request->status,
@@ -168,28 +166,62 @@ class AdminMemberController extends Controller
 
                 return redirect()->back()->withErrors($validator)->withInput();
             } else {
-                $destinationPath = 'uploads/avatars'; // upload path
-                $extension = Input::file('upload_images')->getClientOriginalExtension(); // getting image extension
-                $fileName = date('Ymd_His') . '.' . $extension; // renameing image
-                Input::file('upload_images')->move($destinationPath, $fileName); // uploading file to given path
-                Members::insert([
+                $fileName = $this->uploadImage('upload_images');
+                Members::where('id', '=', $id)
+                    ->update([
+                        'lastname'      => $request->lastname,
+                        'firstname'     => $request->firstname,
+                        'image'         => $fileName,
+                        'email'         => $request->email,
+                        'password'      => bcrypt($request->password),
+                        'status'        => $request->status,
+                        'created_at'    => date('Y-m-d H:i:s'),
+                        'updated_at'    => date('Y-m-d H:i:s'),
+                        'del_flg'       => 0
+                    ]);
+
+                $request->session()->flash('alert-success', 'Thành viên đã được cập nhật thành công !!!');
+
+                return redirect()->back();
+            }
+        } else {
+            $rules = [
+                'lastname'          => 'required',
+                'firstname'         => 'required',
+                'email'             => "required|email|unique:members,email,$id",
+            ];
+
+            $message = [
+                'lastname.required'             => 'Họ là trường bắt buộc',
+                'firstname.required'            => 'Tên là trường bắt buộc',
+                'email.required'                => 'Email là trường bắt buộc',
+                'email.email'                   => 'Email không hợp lệ',
+                'email.unique'                  => 'Email đã được dùng',
+            ];
+
+            $validator = Validator::make($request->all(), $rules, $message);
+            if ($validator->fails()) {
+                $request->session()->flash('alert-warning', 'Thành viên chưa được cập nhật thành công !!!');
+
+                return redirect()->back()->withErrors($validator)->withInput();
+            } else {
+                $fileName = $this->uploadImage('upload_images');
+                Members::where('id', '=', $id)
+                ->update([
                     'lastname'      => $request->lastname,
                     'firstname'     => $request->firstname,
-                    'image'         => 'uploads/avatars/' . $fileName,
+                    'image'         => $fileName,
                     'email'         => $request->email,
-                    'password'      => bcrypt($request->password),
                     'status'        => $request->status,
                     'created_at'    => date('Y-m-d H:i:s'),
                     'updated_at'    => date('Y-m-d H:i:s'),
                     'del_flg'       => 0
                 ]);
 
-                $request->session()->flash('alert-success', 'Thành viên đã được đăng ký thành công !!!');
+                $request->session()->flash('alert-success', 'Thành viên đã được cập nhật thành công !!!');
 
                 return redirect()->back();
             }
-        } else {
-            
         }
     }
 
@@ -204,5 +236,26 @@ class AdminMemberController extends Controller
     {
         //
         dd("fffffff");
+    }
+    
+    /**
+     * Upload and save image
+     * 
+     * @param string $fileNameUpload
+     * 
+     * @return string
+     * */
+    
+    public function uploadImage($fileNameUpload) {
+        
+        if (Input::file($fileNameUpload) != null) {
+            $destinationPath = 'uploads/avatars';
+            $extension = Input::file($fileNameUpload)->getClientOriginalExtension();
+            $fileName = date('Ymd_His') . '.' . $extension;
+            Input::file('upload_images')->move($destinationPath, $fileName);
+            return $fileNameUrl = 'uploads/avatars/' . $fileName;
+        } else {
+            return $fileNameUrl = "";
+        }
     }
 }
