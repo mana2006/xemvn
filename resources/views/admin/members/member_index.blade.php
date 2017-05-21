@@ -25,9 +25,9 @@
                             @foreach($members as $member)
                             <tr>
                                 @if($member->image)
-                                    <td style="width: 10%"><img style=" max-width: 50%;" src="{{ URL::to('/'.$member->image) }}"></td>
+                                    <td style="width: 15%"><img style=" max-width: 50%;" src="{{ URL::to('/'.$member->image) }}"></td>
                                 @else
-                                    <td style="width: 10%"><img style=" max-width: 50%;" src="{{ URL::to('/img/smile_user.jpg') }}"></td>
+                                    <td style="width: 15%"><img style=" max-width: 50%;" src="{{ URL::to('/img/smile_user.jpg') }}"></td>
                                 @endif
                                 <td>{{ $member->lastname ." ". $member->firstname}}</td>
                                 <td>{{ $member->created_at }}</td>

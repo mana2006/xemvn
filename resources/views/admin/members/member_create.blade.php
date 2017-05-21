@@ -47,16 +47,6 @@
                                                 <label class="custom-file">
                                                     <span class="custom-file-control"></span>
                                                     <input type="file" id="upload_images" class="custom-file-input"  name="upload_images">
-                                                    
-                                                </label>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <p>Avatar</p>
-                                                <e1></e1><br><br>
-                                                <label class="custom-file">
-                                                    <span class="custom-file-control"></span>
-                                                    <input type="file" id="upload_images1" class="custom-file-input"  name="upload_images">
 
                                                 </label>
                                             </div>

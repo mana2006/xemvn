@@ -167,18 +167,33 @@ class AdminMemberController extends Controller
                 return redirect()->back()->withErrors($validator)->withInput();
             } else {
                 $fileName = $this->uploadImage('upload_images');
-                Members::where('id', '=', $id)
-                    ->update([
-                        'lastname'      => $request->lastname,
-                        'firstname'     => $request->firstname,
-                        'image'         => $fileName,
-                        'email'         => $request->email,
-                        'password'      => bcrypt($request->password),
-                        'status'        => $request->status,
-                        'created_at'    => date('Y-m-d H:i:s'),
-                        'updated_at'    => date('Y-m-d H:i:s'),
-                        'del_flg'       => 0
-                    ]);
+                if ($fileName != null) {
+                    Members::where('id', '=', $id)
+                        ->update([
+                            'lastname'      => $request->lastname,
+                            'firstname'     => $request->firstname,
+                            'image'         => $fileName,
+                            'email'         => $request->email,
+                            'password'      => bcrypt($request->password),
+                            'status'        => $request->status,
+                            'created_at'    => date('Y-m-d H:i:s'),
+                            'updated_at'    => date('Y-m-d H:i:s'),
+                            'del_flg'       => 0
+                        ]);
+                } else {
+                    Members::where('id', '=', $id)
+                        ->update([
+                            'lastname'      => $request->lastname,
+                            'firstname'     => $request->firstname,
+                            'email'         => $request->email,
+                            'password'      => bcrypt($request->password),
+                            'status'        => $request->status,
+                            'created_at'    => date('Y-m-d H:i:s'),
+                            'updated_at'    => date('Y-m-d H:i:s'),
+                            'del_flg'       => 0
+                        ]);
+                }
+                
 
                 $request->session()->flash('alert-success', 'Thành viên đã được cập nhật thành công !!!');
 
@@ -206,17 +221,31 @@ class AdminMemberController extends Controller
                 return redirect()->back()->withErrors($validator)->withInput();
             } else {
                 $fileName = $this->uploadImage('upload_images');
-                Members::where('id', '=', $id)
-                ->update([
-                    'lastname'      => $request->lastname,
-                    'firstname'     => $request->firstname,
-                    'image'         => $fileName,
-                    'email'         => $request->email,
-                    'status'        => $request->status,
-                    'created_at'    => date('Y-m-d H:i:s'),
-                    'updated_at'    => date('Y-m-d H:i:s'),
-                    'del_flg'       => 0
-                ]);
+                if ($fileName != null) {
+                    Members::where('id', '=', $id)
+                        ->update([
+                            'lastname'      => $request->lastname,
+                            'firstname'     => $request->firstname,
+                            'image'         => $fileName,
+                            'email'         => $request->email,
+                            'status'        => $request->status,
+                            'created_at'    => date('Y-m-d H:i:s'),
+                            'updated_at'    => date('Y-m-d H:i:s'),
+                            'del_flg'       => 0
+                        ]);
+                } else {
+                    Members::where('id', '=', $id)
+                        ->update([
+                            'lastname'      => $request->lastname,
+                            'firstname'     => $request->firstname,
+                            'email'         => $request->email,
+                            'status'        => $request->status,
+                            'created_at'    => date('Y-m-d H:i:s'),
+                            'updated_at'    => date('Y-m-d H:i:s'),
+                            'del_flg'       => 0
+                        ]);
+                }
+                
 
                 $request->session()->flash('alert-success', 'Thành viên đã được cập nhật thành công !!!');
 

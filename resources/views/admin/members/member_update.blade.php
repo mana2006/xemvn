@@ -45,7 +45,7 @@
                                             <div class="form-group">
                                                 <p>Avatar</p>
                                                 <e>@if($memberList['image'])
-                                                        <img width="20%" height='150px' id="show_image" src="{{ URL::to('/'.$memberList['image'])}}">
+                                                        <img width="25%" height='150px' id="show_image" src="{{ URL::to('/'.$memberList['image'])}}">
                                                     @endif
                                                 </e>
                                                 
