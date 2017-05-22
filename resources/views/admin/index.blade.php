@@ -28,6 +28,8 @@
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
+
+
   (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {
@@ -38,6 +40,10 @@
     js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=514374418733627";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
+
+  /**
+   * show Image after choose
+  * */
 
   function readURL(input, id, tag) {
 
@@ -60,9 +66,56 @@
   });
 
   
+  
+  /**
+   * clear Form input
+   * */
+
   function clearForm(id) {
     document.getElementById(id).reset();
   }
+
+
+  /**
+   * delete member 
+   * */
+
+  $('.delete_member').click(function (){
+    deletePartition(this, 'delete', 'row_member');
+  });
+  
+  /**
+   * delete user
+   * */
+  
+  $('.delete_user').click(function (){
+    deletePartition(this, 'delete', 'row_user')
+  });
+  
+  /**
+   * using ajax with POST method for request to server
+   * */
+  
+  function deletePartition(thisSelf, url, rowPartition){
+    var result = confirm("Bạn có muốn xoá ?");
+    if (result) {
+      var partitionId = $(thisSelf).val();
+
+      $.ajax({
+        type: "POST",
+        url: url + '/' + partitionId,
+        data: {
+          'id': partitionId,
+          '_token': '<?php echo csrf_token() ?>',
+          '_method' : 'DELETE'
+        },
+        success: function () {
+          $("#" + rowPartition + partitionId).remove();
+        },
+      });
+    }
+  }
+
 </script>
 {!! Html::script('js/tether.min.js') !!}
 {!! Html::script('js/jquery-3.2.1.js') !!}

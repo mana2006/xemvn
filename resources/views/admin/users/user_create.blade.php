@@ -23,21 +23,14 @@
                                                 @endif
                                             @endforeach
                                         </div> <!-- end .flash-message -->
-                                        <form id="create_member" method="POST" action="{{route('member.store')}}" enctype="multipart/form-data">
+                                        <form id="create_member" method="POST" action="{{route('user.store')}}" enctype="multipart/form-data">
                                             {{csrf_field()}}
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="lastname">Họ </label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Họ" value="{{ old('lastname') }}" aria-describedby="lastname-error" aria-required="true" aria-invalid="true">
-                                                @if($errors->has('lastname'))
-                                                    <div class="error">{{ $errors->first('lastname') }}</div>
-                                                @endif
-                                            </div>
 
                                             <div class="form-group">
-                                                <label class="form-control-label" for="firstname">Tên</label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Tên" value="{{ old('firstname') }}">
-                                                @if($errors->has('firstname'))
-                                                    <div class="error">{{ $errors->first('firstname') }}</div>
+                                                <label class="form-control-label" for="name">Tên</label><span class="error">(*)</span>
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Tên" value="{{ old('name') }}">
+                                                @if($errors->has('name'))
+                                                    <div class="error">{{ $errors->first('name') }}</div>
                                                 @endif
                                             </div>
 
@@ -49,15 +42,6 @@
                                                     <input type="file" id="upload_images" class="custom-file-input"  name="upload_images">
 
                                                 </label>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="email">Trạng thái</label><span class="error">(*)</span>
-                                                <select id="select" name="status" class="form-control" size="1">
-                                                    @foreach($listStatus as $status)
-                                                        <option value="{{ $status->id }}" {{ old('status') == $status->id ? "selected" : "" }}>{{$status->name}}</option>
-                                                    @endforeach
-                                                </select>
                                             </div>
 
                                             <div class="form-group">

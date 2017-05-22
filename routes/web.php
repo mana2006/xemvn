@@ -109,18 +109,13 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('index',  function () {
             return view('admin.dashboard.dashboard');
         });
-        
+
+        Route::resource('user', 'AdminUserController');
+        Route::delete('user/delete/{id}', 'AdminUserController@destroy');
+
         Route::resource('member', 'AdminMemberController');
+        Route::delete('member/delete/{id}', 'AdminMemberController@destroy');
     });
 });
 
 
-
-
-//Route::resource('user', 'AdminUserController');
-//
-//
-//
-//Auth::routes();
-//
-//Route::get('/admin/login', 'HomeController@index')->name('home');

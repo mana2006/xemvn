@@ -61,7 +61,7 @@ class AdminLoginController extends Controller
             $email = $request->input('email');
             $password = $request->input('password');
             
-            if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            if (Auth::attempt(['email' => $email, 'password' => $password, 'del_flg' => 0])) {
                 return redirect()->intended('/admin/index');
             } else {
                 $errors = new MessageBag(['errorlogin' => 'Email hoặc mật khẩu không đúng']);

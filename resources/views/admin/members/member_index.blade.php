@@ -22,12 +22,14 @@
                             </tr>
                             </thead>
                             <tbody>
+                            
                             @foreach($members as $member)
-                            <tr>
+
+                            <tr id="row_member{{ $member->id }}">
                                 @if($member->image)
-                                    <td style="width: 15%"><img style=" max-width: 50%;" src="{{ URL::to('/'.$member->image) }}"></td>
+                                    <td style="width: 15%"><img height="100px" style=" max-width: 50%;" src="{{ URL::to('/'.$member->image) }}"></td>
                                 @else
-                                    <td style="width: 15%"><img style=" max-width: 50%;" src="{{ URL::to('/img/smile_user.jpg') }}"></td>
+                                    <td style="width: 15%"><img height="100px" style=" max-width: 50%;" src="{{ URL::to('/img/smile_user.jpg') }}"></td>
                                 @endif
                                 <td>{{ $member->lastname ." ". $member->firstname}}</td>
                                 <td>{{ $member->created_at }}</td>
@@ -45,9 +47,9 @@
                                 <td>
                                     <a class="btn btn-success" href="{{ URL::to('/admin/member/'.$member->id) }}"> <i class="fa fa-search-plus "></i> </a>
                                     <a class="btn btn-info" href="{{ URL::to('/admin/member/'.$member->id.'/edit/') }}"> <i class="fa fa-edit "></i> </a>
-                                    <a class="btn btn-danger" href="#">
+                                    <button class="btn btn-danger delete_member" value="{{ $member->id }}">
                                         <i class="fa fa-trash-o "></i>
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
                             @endforeach

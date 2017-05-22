@@ -23,46 +23,36 @@
                                                 @endif
                                             @endforeach
                                         </div> <!-- end .flash-message -->
-                                        <form id="create_member" method="POST" action="{{route('member.store')}}" enctype="multipart/form-data">
+                                        <form id="update_member" method="POST" action="{{route('user.update', $user['id'])}}" enctype="multipart/form-data">
                                             {{csrf_field()}}
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="lastname">Họ </label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Họ" value="{{ old('lastname') }}" aria-describedby="lastname-error" aria-required="true" aria-invalid="true">
-                                                @if($errors->has('lastname'))
-                                                    <div class="error">{{ $errors->first('lastname') }}</div>
-                                                @endif
-                                            </div>
+                                            {{method_field('PUT')}}
 
                                             <div class="form-group">
-                                                <label class="form-control-label" for="firstname">Tên</label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Tên" value="{{ old('firstname') }}">
-                                                @if($errors->has('firstname'))
-                                                    <div class="error">{{ $errors->first('firstname') }}</div>
+                                                <label class="form-control-label" for="name">Tên</label><span class="error">(*)</span>
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Tên" value="{{ !empty(old('name')) ? old('name') : $user['name'] }}">
+                                                @if($errors->has('name'))
+                                                    <div class="error">{{ $errors->first('name') }}</div>
                                                 @endif
                                             </div>
 
                                             <div class="form-group">
                                                 <p>Avatar</p>
-                                                <e></e><br><br>
+                                                <e>@if($user['image'])
+                                                        <img width="25%" height='150px' id="show_image" src="{{ URL::to('/'.$user['image'])}}">
+                                                    @endif
+                                                </e>
+
+                                                <br><br>
                                                 <label class="custom-file">
                                                     <span class="custom-file-control"></span>
-                                                    <input type="file" id="upload_images" class="custom-file-input"  name="upload_images">
+                                                    <input type="file" id="upload_images" class="custom-file-input"  name="upload_images" >
 
                                                 </label>
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="form-control-label" for="email">Trạng thái</label><span class="error">(*)</span>
-                                                <select id="select" name="status" class="form-control" size="1">
-                                                    @foreach($listStatus as $status)
-                                                        <option value="{{ $status->id }}" {{ old('status') == $status->id ? "selected" : "" }}>{{$status->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
                                                 <label class="form-control-label" for="email">Email</label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
+                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ !empty(old('email')) ? old('email') : $user['email'] }}">
                                                 @if($errors->has('email'))
                                                     <div class="error">{{ $errors->first('email') }}</div>
                                                 @endif
@@ -87,8 +77,8 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Đăng ký</button>&nbsp;&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-secondary" name="cacel" value="Cancel" onclick="clearForm('create_member')">Huỷ bỏ</button>
+                                                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Cập nhật</button>&nbsp;&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-secondary" name="cacel" value="Cancel" onclick="clearForm('update_member')">Huỷ bỏ</button>
                                             </div>
                                         </form>
                                     </div>

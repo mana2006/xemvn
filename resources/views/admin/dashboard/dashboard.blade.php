@@ -202,8 +202,13 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                    <span class="hidden-md-down">admin</span> </a>
+                    @if (Auth::user()->image)
+                        <img src="{{ URL::to('/'.Auth::user()->image) }}" class="img-avatar" alt="admin">
+                    @else
+                        <img src="{{ URL::to('/img/logo.png') }}" class="img-avatar" alt="admin">
+                    @endif
+                    
+                    <span class="hidden-md-down">{{ Auth::user()->name }}</span> </a>
                 <div class="dropdown-menu dropdown-menu-right">
 
                     <div class="dropdown-header text-center">
@@ -259,7 +264,10 @@
                         <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-user"></i> Quản trị viên</a>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)"><i class="fa fa-user"></i> Danh sách quản trị viên</a>
+                                <a class="nav-link" href="/admin/user/"><i class="fa fa-user"></i> Danh sách quản trị viên</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/user/create"><i class="fa fa-user"></i> Thêm quản trị viên</a>
                             </li>
                         </ul>
                     </li>

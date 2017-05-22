@@ -49,7 +49,6 @@ class AdminMemberController extends Controller
             'email'             => 'required|email|unique:members,email',
             'password'          => 'required|min:6',
             'confirm_password'  => 'required|min:6|same:password'
-
         ];
 
         $message = [
@@ -120,8 +119,7 @@ class AdminMemberController extends Controller
     {
         $listStatus = Status::select('name', 'id')
             ->get();
-        $memberList = Members::select('id', 'image', 'firstname', 'lastname', 'email', 'status', 'created_at')
-            ->where('del_flg', '<>', 1)
+        $memberList = Members::select('id', 'image', 'firstname', 'lastname', 'email', 'status')
             ->where('id', '=', $id)
             ->get()->toArray();
         return view('admin.members.member_update', ['memberList' => $memberList[0], 'listStatus' => $listStatus]);
@@ -176,7 +174,6 @@ class AdminMemberController extends Controller
                             'email'         => $request->email,
                             'password'      => bcrypt($request->password),
                             'status'        => $request->status,
-                            'created_at'    => date('Y-m-d H:i:s'),
                             'updated_at'    => date('Y-m-d H:i:s'),
                             'del_flg'       => 0
                         ]);
@@ -188,7 +185,6 @@ class AdminMemberController extends Controller
                             'email'         => $request->email,
                             'password'      => bcrypt($request->password),
                             'status'        => $request->status,
-                            'created_at'    => date('Y-m-d H:i:s'),
                             'updated_at'    => date('Y-m-d H:i:s'),
                             'del_flg'       => 0
                         ]);
@@ -229,7 +225,6 @@ class AdminMemberController extends Controller
                             'image'         => $fileName,
                             'email'         => $request->email,
                             'status'        => $request->status,
-                            'created_at'    => date('Y-m-d H:i:s'),
                             'updated_at'    => date('Y-m-d H:i:s'),
                             'del_flg'       => 0
                         ]);
@@ -240,7 +235,6 @@ class AdminMemberController extends Controller
                             'firstname'     => $request->firstname,
                             'email'         => $request->email,
                             'status'        => $request->status,
-                            'created_at'    => date('Y-m-d H:i:s'),
                             'updated_at'    => date('Y-m-d H:i:s'),
                             'del_flg'       => 0
                         ]);
@@ -263,8 +257,10 @@ class AdminMemberController extends Controller
      */
     public function destroy($id)
     {
-        //
-        dd("fffffff");
+        Members::where('id', '=', $id)
+        ->update([
+            'del_flg' => '1' 
+        ]);
     }
     
     /**
@@ -278,11 +274,11 @@ class AdminMemberController extends Controller
     public function uploadImage($fileNameUpload) {
         
         if (Input::file($fileNameUpload) != null) {
-            $destinationPath = 'uploads/avatars';
+            $destinationPath = 'uploads/avatars/members';
             $extension = Input::file($fileNameUpload)->getClientOriginalExtension();
             $fileName = date('Ymd_His') . '.' . $extension;
             Input::file('upload_images')->move($destinationPath, $fileName);
-            return $fileNameUrl = 'uploads/avatars/' . $fileName;
+            return $fileNameUrl = $destinationPath . $fileName;
         } else {
             return $fileNameUrl = "";
         }
