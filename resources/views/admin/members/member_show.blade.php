@@ -18,19 +18,19 @@
                                         <form id="show_member"  enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="lastname"><b>Họ : </b></label>
-                                                {{$listMember['lastname']}}
+                                                {{$listMember->lastname}}
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="form-control-label" for="firstname"><b>Tên : </b> </label>
-                                                {{$listMember['firstname']}}
+                                                {{$listMember->firstname}}
                                             </div>
 
                                             <div class="form-group">
                                                 <p><b>Avatar</b></p>
                                                 <br><br>
-                                                @if($listMember['image'])
-                                                    <img width="20%" src="{{ URL::to('/'.$listMember['image'])  }}">
+                                                @if($listMember->image)
+                                                    <img width="20%" src="{{ URL::to('/'.$listMember->image)  }}">
                                                 @else
                                                     <img width="20%" src="{{ URL::to('/img/smile_user.jpg') }}">
                                                 @endif
@@ -39,20 +39,20 @@
 
                                             <div class="form-group">
                                                 <label class="form-control-label" for="email"><b>Trạng thái : </b></label>
-                                                @if($listMember['status'] == 'active')
+                                                @if($listMember->statusName->name == 'active')
                                                     <span class="badge badge-success">Active</span>
-                                                @elseif($listMember['status'] == 'inactive')
+                                                @elseif($listMember->statusName->name == 'inactive')
                                                     <span class="badge badge-default">Inactive</span>
-                                                @elseif($listMember['status'] == 'pending')
+                                                @elseif($listMember->statusName->name == 'pending')
                                                     <span class="badge badge-warning">Pending</span>
-                                                @elseif($listMember['status'] == 'banned')
+                                                @elseif($listMember->statusName->name == 'banned')
                                                     <span class="badge badge-danger">Banned</span>
                                                 @endif
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="form-control-label" for="email"><b>Email :</b></label>
-                                                {{ $listMember['email'] }}
+                                                {{ $listMember->email }}
                                             </div>
 
                                             <div class="form-group">

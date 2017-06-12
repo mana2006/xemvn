@@ -23,7 +23,7 @@ class CreateMemberTable extends Migration
             $table->string('status', 1);
             $table->rememberToken();
             $table->timestamps();
-            $table->string('del_flg', 1);
+            $table->string('del_flg', 1)->default(0);
         });
     }
 

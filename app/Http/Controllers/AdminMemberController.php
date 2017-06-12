@@ -8,8 +8,10 @@ use App\Members;
 use Illuminate\Support\Facades\Input;
 use App\Status;
 
+
 class AdminMemberController extends Controller
 {
+    protected $app;
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +32,7 @@ class AdminMemberController extends Controller
      */
     public function create()
     {
-        $listStatus = Status::select('*')->get();
+        $listStatus = Status::all();
         return view('admin.members.member_create', ['listStatus' => $listStatus]);
     }
 
@@ -72,17 +74,16 @@ class AdminMemberController extends Controller
         } else {
             $fileName = $this->uploadImage('upload_images');
 
-            Members::insert([
-                'lastname'      => $request->lastname,
-                'firstname'     => $request->firstname,
-                'image'         => $fileName,
-                'email'         => $request->email,
-                'password'      => bcrypt($request->password),
-                'status'        => $request->status,
-                'created_at'    => date('Y-m-d H:i:s'),
-                'updated_at'    => date('Y-m-d H:i:s'),
-                'del_flg'       => 0
-            ]);
+            $member = new Members();
+            $member->lastname = $request->lastname;
+            $member->firstname = $request->firstname;
+            $member->image = $fileName;
+            $member->email = $request->email;
+            $member->password = bcrypt($request->password);
+            $member->status = $request->status;
+            $member->created_at = date('Y-m-d H:i:s');
+            $member->updated_at = date('Y-m-d H:i:s');
+            $member->save();
 
             $request->session()->flash('alert-success', 'Thành viên đã được đăng ký thành công !!!');
 
@@ -99,11 +100,7 @@ class AdminMemberController extends Controller
      */
     public function show($id)
     {
-        $listStatus = Status::select('status.name as status', 'members.lastname', 'members.firstname as firstname', 'members.image as image', 'members.email as email')
-            ->rightJoin('members', 'status.id', '=', 'members.status')
-            ->where('members.id', '=', $id)
-            ->get()->toArray();
-
+        $listStatus = Members::whereId($id)->with('statusName')->get();
         return view('admin.members.member_show', ['listMember' => $listStatus[0]]);
 
     }
@@ -117,8 +114,7 @@ class AdminMemberController extends Controller
      */
     public function edit($id)
     {
-        $listStatus = Status::select('name', 'id')
-            ->get();
+        $listStatus = Status::all();
         $memberList = Members::select('id', 'image', 'firstname', 'lastname', 'email', 'status')
             ->where('id', '=', $id)
             ->get()->toArray();
@@ -166,28 +162,25 @@ class AdminMemberController extends Controller
             } else {
                 $fileName = $this->uploadImage('upload_images');
                 if ($fileName != null) {
-                    Members::where('id', '=', $id)
-                        ->update([
-                            'lastname'      => $request->lastname,
-                            'firstname'     => $request->firstname,
-                            'image'         => $fileName,
-                            'email'         => $request->email,
-                            'password'      => bcrypt($request->password),
-                            'status'        => $request->status,
-                            'updated_at'    => date('Y-m-d H:i:s'),
-                            'del_flg'       => 0
-                        ]);
+                    $member = Members::find($id);
+                    $member->lastname = $request->lastname;
+                    $member->firstname = $request->firstname;
+                    $member->image = $fileName;
+                    $member->email = $request->email;
+                    $member->password = bcrypt($request->password);
+                    $member->status = $request->status;
+                    $member->updated_at = date('Y-m-d H:i:s');
+                    $member->save();
+
                 } else {
-                    Members::where('id', '=', $id)
-                        ->update([
-                            'lastname'      => $request->lastname,
-                            'firstname'     => $request->firstname,
-                            'email'         => $request->email,
-                            'password'      => bcrypt($request->password),
-                            'status'        => $request->status,
-                            'updated_at'    => date('Y-m-d H:i:s'),
-                            'del_flg'       => 0
-                        ]);
+                    $member = Members::find($id);
+                    $member->lastname = $request->lastname;
+                    $member->firstname = $request->firstname;
+                    $member->email = $request->email;
+                    $member->password = bcrypt($request->password);
+                    $member->status = $request->status;
+                    $member->updated_at = date('Y-m-d H:i:s');
+                    $member->save();
                 }
                 
 
@@ -218,28 +211,27 @@ class AdminMemberController extends Controller
             } else {
                 $fileName = $this->uploadImage('upload_images');
                 if ($fileName != null) {
-                    Members::where('id', '=', $id)
-                        ->update([
-                            'lastname'      => $request->lastname,
-                            'firstname'     => $request->firstname,
-                            'image'         => $fileName,
-                            'email'         => $request->email,
-                            'status'        => $request->status,
-                            'updated_at'    => date('Y-m-d H:i:s'),
-                            'del_flg'       => 0
-                        ]);
+
+                    $member = Members::find($id);
+                    $member->lastname = $request->lastname;
+                    $member->firstname = $request->firstname;
+                    $member->image = $fileName;
+                    $member->email = $request->email;
+                    $member->status = $request->status;
+                    $member->updated_at = date('Y-m-d H:i:s');
+                    $member->save();
+
                 } else {
-                    Members::where('id', '=', $id)
-                        ->update([
-                            'lastname'      => $request->lastname,
-                            'firstname'     => $request->firstname,
-                            'email'         => $request->email,
-                            'status'        => $request->status,
-                            'updated_at'    => date('Y-m-d H:i:s'),
-                            'del_flg'       => 0
-                        ]);
+
+                    $member = Members::find($id);
+                    $member->lastname = $request->lastname;
+                    $member->firstname = $request->firstname;
+                    $member->email = $request->email;
+                    $member->status = $request->status;
+                    $member->updated_at = date('Y-m-d H:i:s');
+                    $member->save();
+
                 }
-                
 
                 $request->session()->flash('alert-success', 'Thành viên đã được cập nhật thành công !!!');
 
@@ -274,7 +266,7 @@ class AdminMemberController extends Controller
     public function uploadImage($fileNameUpload) {
         
         if (Input::file($fileNameUpload) != null) {
-            $destinationPath = 'uploads/avatars/members';
+            $destinationPath = 'uploads/avatars/members/';
             $extension = Input::file($fileNameUpload)->getClientOriginalExtension();
             $fileName = date('Ymd_His') . '.' . $extension;
             Input::file('upload_images')->move($destinationPath, $fileName);
@@ -283,4 +275,5 @@ class AdminMemberController extends Controller
             return $fileNameUrl = "";
         }
     }
+
 }

@@ -34,13 +34,13 @@
                                 <td>{{ $member->lastname ." ". $member->firstname}}</td>
                                 <td>{{ $member->created_at }}</td>
                                 <td>
-                                    @if($member->status == 1)
+                                    @if($member->status_id == 1)
                                         <span class="badge badge-success">Active</span>
-                                    @elseif($member->status == 2)
+                                    @elseif($member->status_id == 2)
                                         <span class="badge badge-default">Inactive</span>
-                                    @elseif($member->status == 3)
+                                    @elseif($member->status_id == 3)
                                         <span class="badge badge-warning">Pending</span>
-                                    @elseif($member->status == 4)
+                                    @elseif($member->status_id == 4)
                                         <span class="badge badge-danger">Banned</span>
                                     @endif
                                 </td>

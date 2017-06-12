@@ -284,6 +284,18 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-puzzle-piece"></i> Bài viết</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/article/"><i class="fa fa-puzzle-piece"></i> Danh sách bài viết</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/article/create"><i class="fa fa-puzzle-piece"></i> Thêm bài viết</a>
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
             </nav>
         </div>{{-----------------------------END SIDEBAR-------------------------------------}}

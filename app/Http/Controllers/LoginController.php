@@ -10,16 +10,12 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest', ['except' => 'logout']);
-    }
 
-    public function getLogin() {
+    public function showLogin() {
         return view('layouts.body.login');
     }
 
-    public function postLogin(Request $request) {
+    public function checkLogin(Request $request) {
         $rules = [
             'email' => 'required|email',
             'password' => 'required|min:6',
@@ -41,7 +37,7 @@ class LoginController extends Controller
             $email = $request->input('email');
             $password = $request->input('password');
 
-            if( Auth::attempt(['email' => $email, 'password' =>$password])) {
+            if( Auth::guard('members')->attempt(['email' => $email, 'password' => $password, 'del_flg' => 0])) {
                 return redirect()->intended('/');
             } else {
                 $errors = new MessageBag(['errorlogin' => 'Email hoặc mật khẩu không đúng']);
@@ -50,9 +46,8 @@ class LoginController extends Controller
         }
     }
 
-    public function getLogout() {
-        Auth::logout();
-        Session::flush();
-        return view('/');
+    public function logout() {
+        Auth::guard('members')->logout();
+        return redirect('/');
     }
 }

@@ -45,6 +45,12 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        
+        // For member
+        'members' => [
+            'driver' => 'session',
+            'provider' => 'members'
+        ]
     ],
 
     /*
@@ -70,10 +76,18 @@ return [
             'model' => App\User::class,
         ],
 
+        'members' => [
+            'driver' => 'eloquent',
+            'model' => App\Members::class,
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+//         'members' => [
+//             'driver' => 'database',
+//             'table' => 'members',
+//         ],
     ],
 
     /*
@@ -97,6 +111,14 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+
+//         For members
+        'members' => [
+            'provider' => 'members',
+            'email' => 'auth.emails.password',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ]
     ],
 
 ];

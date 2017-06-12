@@ -24,12 +24,7 @@ class AdminLoginController extends Controller
      *
      * @return void
      */
-    
-    public function __construct()
-    {
-        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
-    }
-    
+
     public function getLogin()
     {
         if (!Auth::check()) {
@@ -46,7 +41,6 @@ class AdminLoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:6',
         ];
-        
         $message = [
             'email.required' => 'Email là trường bắt buộc',
             'email.email' => 'Email không hợp lệ',
@@ -72,8 +66,7 @@ class AdminLoginController extends Controller
     
     public function getLogout()
     {
-        Auth::logout();
-        Session::flush();
+        Auth::guard('web')->logout();
         return redirect('/admin/login');
     }
 }

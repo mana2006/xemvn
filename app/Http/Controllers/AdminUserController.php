@@ -15,6 +15,7 @@ class AdminUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $userList = User::select('id', 'name', 'email', 'created_at')
