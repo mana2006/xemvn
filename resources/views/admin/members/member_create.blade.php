@@ -19,7 +19,9 @@
                                             @foreach (['danger', 'warning', 'success', 'info'] as $msg)
                                                 @if(Session::has('alert-' . $msg))
 
-                                                    <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                                                    <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}
+                                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                    </p>
                                                 @endif
                                             @endforeach
                                         </div> <!-- end .flash-message -->
@@ -43,10 +45,10 @@
 
                                             <div class="form-group">
                                                 <p>Avatar</p>
-                                                <e></e><br><br>
-                                                <label class="custom-file">
+                                                <e></e>
+                                                <br><br> <label class="custom-file">
                                                     <span class="custom-file-control"></span>
-                                                    <input type="file" id="upload_images" class="custom-file-input"  name="upload_images">
+                                                    <input type="file" id="upload_images" class="custom-file-input" name="upload_images">
 
                                                 </label>
                                             </div>

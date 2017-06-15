@@ -29,20 +29,15 @@ class AuthAdmin
         return $next($request);
     }
 
-    public function terminate($request, $response)
+    public function terminate()
     {
-        $dir = '../vagrant/Code/xemvn/storage/logs/login.log';
-        if (!is_dir($dir)) {
-            mkdir($dir);
-            $myfile = fopen($dir, "w");
-            $content = '['.date('Y-m-d H:i:s').']' . $request->name. "had login";
-            fwrite($myfile, $content);
-            fclose($myfile);
-        } else {
-            $myfile = fopen($dir, "w");
-            $content = '['.date('Y-m-d H:i:s').']' . $request->name. "had login";
-            fwrite($myfile, $content);
-            fclose($myfile);
+        if (!file_exists(storage_path('logs/login'))) {
+            mkdir(storage_path('logs/login'));
         }
+        $dir = storage_path('logs/login/login_list_'.date('Y_m_d').'.log');
+        $myfile = fopen($dir, "a");
+        $content = '['.date('Y-m-d H:i:s').'] : ' . Auth::user()->email . " had login\n";
+        fwrite($myfile, $content);
+        fclose($myfile);
     }
 }
