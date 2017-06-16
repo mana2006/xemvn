@@ -10,7 +10,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <i class="icon-note"></i> Thêm thành viên
+                                <i class="icon-note"></i> Thêm bài viết
                             </div>
                             <div class="card-block">
                                 <div class="row">
@@ -28,27 +28,27 @@
                                         <form id="create_member" method="POST" action="{{route('member.store')}}" enctype="multipart/form-data">
                                             {{csrf_field()}}
                                             <div class="form-group">
-                                                <label class="form-control-label" for="lastname">Họ </label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Họ" value="{{ old('lastname') }}" aria-describedby="lastname-error" aria-required="true" aria-invalid="true">
-                                                @if($errors->has('lastname'))
-                                                    <div class="error">{{ $errors->first('lastname') }}</div>
+                                                <label class="form-control-label" for="title">Chủ đề </label><span class="error">(*)</span>
+                                                <input type="text" class="form-control" id="title" name="title" placeholder="Chủ đề" value="{{ old('title') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true">
+                                                @if($errors->has('title'))
+                                                    <div class="error">{{ $errors->first('title') }}</div>
                                                 @endif
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="form-control-label" for="firstname">Tên</label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Tên" value="{{ old('firstname') }}">
-                                                @if($errors->has('firstname'))
-                                                    <div class="error">{{ $errors->first('firstname') }}</div>
+                                                <label class="form-control-label" for="content">Nội dung</label><span class="error">(*)</span>
+                                                <input type="text" class="form-control" id="content" name="content" placeholder="Nội dung" value="{{ old('content') }}">
+                                                @if($errors->has('content'))
+                                                    <div class="error">{{ $errors->first('content') }}</div>
                                                 @endif
                                             </div>
 
                                             <div class="form-group">
-                                                <p>Avatar</p>
+                                                <p>Hình ảnh</p>
                                                 <e></e>
                                                 <br><br> <label class="custom-file">
                                                     <span class="custom-file-control"></span>
-                                                    <input type="file" id="upload_images" class="custom-file-input" name="upload_images">
+                                                    <input type="file" id="article_images" class="custom-file-input" name="article_images">
 
                                                 </label>
                                             </div>
@@ -56,40 +56,23 @@
                                             <div class="form-group">
                                                 <label class="form-control-label" for="email">Trạng thái</label><span class="error">(*)</span>
                                                 <select id="select" name="status" class="form-control" size="1">
-                                                    {{--@foreach($listStatus as $status)--}}
-                                                        {{--<option value="{{ $status->id }}" {{ old('status') == $status->id ? "selected" : "" }}>{{$status->name}}</option>--}}
-                                                    {{--@endforeach--}}
+                                                    @foreach($listStatus as $status)
+                                                        <option value="{{ $status->id }}" {{ old('status') == $status->id ? "selected" : "" }}>{{$status->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="form-control-label" for="email">Email</label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
-                                                @if($errors->has('email'))
-                                                    <div class="error">{{ $errors->first('email') }}</div>
-                                                @endif
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="form-control-label" for="password">Mật khẩu</label><span class="error">(*)</span>
-                                                    <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu">
-                                                    @if($errors->has('password'))
-                                                        <div class="error">{{ $errors->first('password') }}</div>
-                                                    @endif
-                                                </div>
-
-                                                <div class="form-group col-md-6">
-                                                    <label class="form-control-label" for="confirm_password">Xác nhận lại mật khẩu</label><span class="error">(*)</span>
-                                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Xác nhận lại mật khẩu">
-                                                    @if($errors->has('confirm_password'))
-                                                        <div class="error">{{ $errors->first('confirm_password') }}</div>
-                                                    @endif
-                                                </div>
+                                                <label class="form-control-label" for="email">Thể loại</label><span class="error">(*)</span>
+                                                <select id="select" name="status" class="form-control" size="1">
+                                                    @foreach($listCategory as $category)
+                                                        <option value="{{ $category->id }}" {{ old('$category') == $category->id ? "selected" : "" }}>{{$category->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
 
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Đăng ký</button>&nbsp;&nbsp;&nbsp;
+                                                <button type="submit" class="btn btn-primary" name="signup" value="Sign up"> Tạo mới </button>&nbsp;&nbsp;&nbsp;
                                                 <button type="button" class="btn btn-secondary" name="cacel" value="Cancel" onclick="clearForm('create_member')">Huỷ bỏ</button>
                                             </div>
                                         </form>

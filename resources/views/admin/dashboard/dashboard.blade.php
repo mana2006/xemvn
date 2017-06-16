@@ -50,7 +50,9 @@
                                 <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </span>
                         <small class="text-muted">348 Processes. 1/4 Cores.</small>
-                    </a> <a href="#" class="dropdown-item">
+                    </a>
+
+                    <a href="#" class="dropdown-item">
                         <div class="text-uppercase mb-q">
                             <small><b>Memory Usage</b>
                             </small>
@@ -59,7 +61,9 @@
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                             </span>
                         <small class="text-muted">11444GB/16384MB</small>
-                    </a> <a href="#" class="dropdown-item">
+                    </a>
+
+                    <a href="#" class="dropdown-item">
                         <div class="text-uppercase mb-q">
                             <small><b>SSD 1 Usage</b>
                             </small>
@@ -82,9 +86,10 @@
                     </div>
 
                     <a href="#" class="dropdown-item">
-                        <div class="small mb-q">Upgrade NPM &amp; Bower <span class="float-right">
+                        <div class="small mb-q">Upgrade NPM &amp; Bower 
+                            <span class="float-right">
                                     <strong>0%</strong>
-                                </span>
+                            </span>
                         </div>
                         <span class="progress progress-xs">
                                 <div class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -207,7 +212,7 @@
                     @else
                         <img src="{{ URL::to('/img/logo.png') }}" class="img-avatar" alt="admin">
                     @endif
-                    
+
                     <span class="hidden-md-down">{{ Auth::user()->name }}</span> </a>
                 <div class="dropdown-menu dropdown-menu-right">
 
@@ -292,6 +297,18 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/admin/article/create"><i class="fa fa-puzzle-piece"></i> Thêm bài viết</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-hashtag"></i> Thể loại</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/category/"><i class="fa fa-hashtag"></i> Danh sách thể loại</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/category/create"><i class="fa fa-hashtag"></i> Thêm thể loại</a>
                             </li>
                         </ul>
                     </li>

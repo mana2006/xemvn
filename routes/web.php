@@ -110,17 +110,29 @@ Route::group(['prefix' => 'admin'], function () {
             return view('admin.dashboard.dashboard');
         });
 
-//        For User
+        /*
+         * For User *
+         * */
         Route::resource('user', 'AdminUserController');
         Route::delete('user/delete/{id}', 'AdminUserController@destroy');
 
-//        For Members
+        /*
+         * For Members *
+         * */
         Route::resource('member', 'AdminMemberController');
         Route::delete('member/delete/{id}', 'AdminMemberController@destroy');
 
-//        For Article
+        /*
+         * For Article *
+         * */
         Route::resource('article', 'AdminArticleController');
         Route::delete('article/delete/{id}', 'AdminArticleController@destroy');
+
+        /*
+         * For  Category *
+         *  */
+        Route::resource('category', 'AdminCategoryController');
+        Route::delete('category/delete/{id}', 'AdminCategoryController@destroy');
     });
 });
 

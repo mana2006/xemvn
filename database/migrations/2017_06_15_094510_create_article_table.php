@@ -23,8 +23,8 @@ class CreateArticleTable extends Migration
             $table->string('views');
             $table->string('status_id');
             $table->string('category_id');
-            $table->string('del_flg');
             $table->timestamps();
+            $table->string('del_flg', 1)->default(0);
         });
     }
 

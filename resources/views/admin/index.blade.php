@@ -92,6 +92,13 @@
     deletePartition(this, 'delete', 'row_user')
   });
   
+  /*
+  * delete category
+  * */
+  $('.delete_category').click(function (){
+    deletePartition(this, 'delete', 'row_category')
+  });
+  
   /**
    * using ajax with POST method for request to server
    * */
