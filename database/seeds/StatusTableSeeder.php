@@ -15,19 +15,19 @@ class StatusTableSeeder extends Seeder
         Status::insert([
             [
             'id' => '1',
-            'name' => 'active'
+            'name' => 'Active'
             ],
             [
                 'id' => '2',
-                'name' => 'inactive'
+                'name' => 'Inactive'
             ],
             [
                 'id' => '3',
-                'name' => 'pending'
+                'name' => 'Pending'
             ],
             [
                 'id' => '4',
-                'name' => 'banned'
+                'name' => 'Banned'
             ]
         ]);
     }

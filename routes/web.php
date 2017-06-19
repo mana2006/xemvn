@@ -125,8 +125,8 @@ Route::group(['prefix' => 'admin'], function () {
         /*
          * For Article *
          * */
-        Route::resource('article', 'AdminArticleController');
-        Route::delete('article/delete/{id}', 'AdminArticleController@destroy');
+        Route::resource('article', 'AdminPostController');
+        Route::delete('article/delete/{id}', 'AdminPostController@destroy');
 
         /*
          * For  Category *

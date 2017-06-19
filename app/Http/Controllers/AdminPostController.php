@@ -6,7 +6,7 @@ use App\Category;
 use App\Status;
 use Illuminate\Http\Request;
 
-class AdminArticleController extends Controller
+class AdminPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +28,7 @@ class AdminArticleController extends Controller
         $listStatus = Status::all();
         $listCategory = Category::all();
 
-        return view('admin.articles.article_create',
+        return view('admin.posts.post_create',
             ['listStatus' => $listStatus, 'listCategory' => $listCategory]);
     }
 
