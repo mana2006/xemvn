@@ -67,7 +67,7 @@ class AdminPostController extends Controller
 
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
-            
+
             $fileName = $this->uploadImage('post_images');
             $member = Members::where('nickname', $request->member_nickname)->first();
             $post = new Posts();

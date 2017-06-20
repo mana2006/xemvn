@@ -154,7 +154,7 @@
 {{--{!! Html::script('admin/js/views/advanced-forms.js') !!}--}}
 {{--{!! Html::script('admin/js/views/calendar.js') !!}--}}
 {{--{!! Html::script('admin/js/views/charts.js') !!}--}}
-{{--{!! Html::script('admin/js/views/draggable-articles.js') !!}--}}
+{{--{!! Html::script('admin/js/views/draggable-posts.js') !!}--}}
 {!! Html::script('admin/js/views/loading-buttons.js') !!}
 {{--{!! Html::script('admin/js/views/main.js') !!}--}}
 {!! Html::script('admin/js/views/notifications.js') !!}
