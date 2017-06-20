@@ -43,6 +43,14 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label class="form-control-label" for="nickname">Biệt danh</label><span class="error">(*)</span>
+                                                <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Biệt danh" value="{{ old('nickname') }}">
+                                                @if($errors->has('nickname'))
+                                                    <div class="error">{{ $errors->first('nickname') }}</div>
+                                                @endif
+                                            </div>
+
+                                            <div class="form-group">
                                                 <p>Avatar</p>
                                                 <e>@if($memberList['image'])
                                                         <img width="25%" height='150px' id="show_image" src="{{ URL::to('/'.$memberList['image'])}}">

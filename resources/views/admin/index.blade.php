@@ -65,6 +65,10 @@
     readURL(this, 'show_image', 'e');
   });
 
+  $("#post_images").change(function(){
+    readURL(this, 'show_image', 'e');
+  });
+
   
   
   /**

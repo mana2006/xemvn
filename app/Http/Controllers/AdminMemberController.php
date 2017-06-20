@@ -19,7 +19,7 @@ class AdminMemberController extends Controller
      */
     public function index()
     {
-        $memberList = Members::select('id', 'image', 'firstname', 'lastname', 'status', 'created_at')
+        $memberList = Members::select('id', 'image', 'firstname', 'lastname', 'nickname', 'status', 'created_at')
             ->where('del_flg', '<>', 1)
             ->paginate(10);
         return view('admin.members.member_index', ['members' => $memberList]);
@@ -48,6 +48,7 @@ class AdminMemberController extends Controller
         $rules = [
             'lastname'          => 'required',
             'firstname'         => 'required',
+            'nickname'          => 'required|unique:members,nickname',
             'email'             => 'required|email|unique:members,email',
             'password'          => 'required|min:6',
             'confirm_password'  => 'required|min:6|same:password'
@@ -56,6 +57,8 @@ class AdminMemberController extends Controller
         $message = [
             'lastname.required'             => 'Họ là trường bắt buộc',
             'firstname.required'            => 'Tên là trường bắt buộc',
+            'nickname.required'             => 'Biệt danh là trường bắt buộc',
+            'nickname.unique'               => 'Tên là trường bắt buộc',
             'email.required'                => 'Email là trường bắt buộc',
             'email.email'                   => 'Email không hợp lệ',
             'email.unique'                  => 'Email đã được dùng',
@@ -77,6 +80,7 @@ class AdminMemberController extends Controller
             $member = new Members();
             $member->lastname = $request->lastname;
             $member->firstname = $request->firstname;
+            $member->nickname = $request->nickname;
             $member->image = $fileName;
             $member->email = $request->email;
             $member->password = bcrypt($request->password);
@@ -135,6 +139,7 @@ class AdminMemberController extends Controller
             $rules = [
                 'lastname'          => 'required',
                 'firstname'         => 'required',
+                'nickname'          => 'required|unique:members,nickname',
                 'email'             => "required|email|unique:members,email,$id",
                 'password'          => 'required|min:6',
                 'confirm_password'  => 'required|min:6|same:password'
@@ -144,6 +149,8 @@ class AdminMemberController extends Controller
             $message = [
                 'lastname.required'             => 'Họ là trường bắt buộc',
                 'firstname.required'            => 'Tên là trường bắt buộc',
+                'nickname.required'             => 'Biệt danh là trường bắt buộc',
+                'nickname.unique'               => 'Tên là trường bắt buộc',
                 'email.required'                => 'Email là trường bắt buộc',
                 'email.email'                   => 'Email không hợp lệ',
                 'email.unique'                  => 'Email đã được dùng',
@@ -165,6 +172,7 @@ class AdminMemberController extends Controller
                     $member = Members::find($id);
                     $member->lastname = $request->lastname;
                     $member->firstname = $request->firstname;
+                    $member->nickname = $request->nickname;
                     $member->image = $fileName;
                     $member->email = $request->email;
                     $member->password = bcrypt($request->password);
@@ -176,6 +184,7 @@ class AdminMemberController extends Controller
                     $member = Members::find($id);
                     $member->lastname = $request->lastname;
                     $member->firstname = $request->firstname;
+                    $member->nickname = $request->nickname;
                     $member->email = $request->email;
                     $member->password = bcrypt($request->password);
                     $member->status = $request->status;
@@ -215,6 +224,7 @@ class AdminMemberController extends Controller
                     $member = Members::find($id);
                     $member->lastname = $request->lastname;
                     $member->firstname = $request->firstname;
+                    $member->nickname = $request->nickname;
                     $member->image = $fileName;
                     $member->email = $request->email;
                     $member->status = $request->status;
@@ -226,6 +236,7 @@ class AdminMemberController extends Controller
                     $member = Members::find($id);
                     $member->lastname = $request->lastname;
                     $member->firstname = $request->firstname;
+                    $member->nickname = $request->nickname;
                     $member->email = $request->email;
                     $member->status = $request->status;
                     $member->updated_at = date('Y-m-d H:i:s');
@@ -263,13 +274,12 @@ class AdminMemberController extends Controller
      * @return string
      * */
     
-    public function uploadImage($fileNameUpload) {
-        
+    private function uploadImage($fileNameUpload) {
         if (Input::file($fileNameUpload) != null) {
             $destinationPath = 'uploads/avatars/members/';
             $extension = Input::file($fileNameUpload)->getClientOriginalExtension();
             $fileName = date('Ymd_His') . '.' . $extension;
-            Input::file('upload_images')->move($destinationPath, $fileName);
+            Input::file($fileNameUpload)->move($destinationPath, $fileName);
             return $fileNameUrl = $destinationPath . $fileName;
         } else {
             return $fileNameUrl = "";

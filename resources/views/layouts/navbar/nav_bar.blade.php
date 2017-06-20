@@ -33,7 +33,7 @@
                     <a class="nav-link {!! (Request::is('hot')) ? "active" : "" !!}" href="/hot">Hot</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {!! (Request::is('old')) ? "active" : "" !!}" href="/old">Cũ xem</a>
+                    <a class="nav-link {!! (Request::is('old')) ? "active" : "" !!}" href="/old">Cũ</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link {!! (Request::is('uploads')) ? "active" : "" !!}"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Đăng bài</a>

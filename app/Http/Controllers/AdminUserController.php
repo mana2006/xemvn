@@ -237,12 +237,12 @@ class AdminUserController extends Controller
             ]);
     }
 
-    public function uploadImage($fileNameUpload) {
+    private function uploadImage($fileNameUpload) {
         if (Input::file($fileNameUpload) != null) {
             $destinationPath = 'uploads/avatars/users/';
             $extension = Input::file($fileNameUpload)->getClientOriginalExtension();
             $fileName = date('Ymd_His') . '.' . $extension;
-            Input::file('upload_images')->move($destinationPath, $fileName);
+            Input::file($fileNameUpload)->move($destinationPath, $fileName);
             return $fileNameUrl = $destinationPath . $fileName;
         } else {
             return $fileNameUrl = "";

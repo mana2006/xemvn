@@ -18,14 +18,13 @@
                                         <div class="flash-message">
                                             @foreach (['danger', 'warning', 'success', 'info'] as $msg)
                                                 @if(Session::has('alert-' . $msg))
-
                                                     <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}
                                                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                                     </p>
                                                 @endif
                                             @endforeach
                                         </div> <!-- end .flash-message -->
-                                        <form id="create_member" method="POST" action="{{route('member.store')}}" enctype="multipart/form-data">
+                                        <form id="create_member" class="form-horizontal" method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
                                             {{csrf_field()}}
                                             <div class="form-group">
                                                 <label class="form-control-label" for="title">Chủ đề </label><span class="error">(*)</span>
@@ -36,20 +35,30 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="form-control-label" for="content">Nội dung</label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="content" name="content" placeholder="Nội dung" value="{{ old('content') }}">
+                                                <label class="form-control-label" for="title">Nội dung </label>
+                                                <input type="text" class="form-control" id="content" name="content" placeholder="Chủ đề" value="{{ old('content') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true">
                                                 @if($errors->has('content'))
                                                     <div class="error">{{ $errors->first('content') }}</div>
                                                 @endif
                                             </div>
 
                                             <div class="form-group">
-                                                <p>Hình ảnh</p>
-                                                <e></e>
-                                                <br><br> <label class="custom-file">
-                                                    <span class="custom-file-control"></span>
-                                                    <input type="file" id="article_images" class="custom-file-input" name="article_images">
+                                                <label class="form-control-label" for="content">Biệt danh thành viên</label>
+                                                <input id="member_nickname" name="member_nickname" class="form-control" placeholder="Biệt danh thành viên" value="{{ old('member_nickname') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true"/>
+                                                @if($errors->has('member_nickname'))
+                                                    <div class="error">{{ $errors->first('member_nickname') }}</div>
+                                                @endif
+                                            </div>
 
+                                            <div class="form-group">
+                                                Hình ảnh<span class="error">(*)</span><br>
+                                                <e></e><br><br>
+                                                <label class="custom-file">
+                                                    <span class="custom-file-control"></span>
+                                                    <input type="file" id="post_images" class="custom-file-input" name="post_images">
+                                                    @if($errors->has('post_images'))
+                                                        <div class="error">{{ $errors->first('post_images') }}</div>
+                                                    @endif
                                                 </label>
                                             </div>
 

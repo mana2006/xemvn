@@ -8,14 +8,14 @@
             <div class="animated fadeIn">
                 <div class="card">
                     <div class="card-header">
-                        <h5><i class="fa fa-edit"></i> Danh sách thành viên</h5>
+                        <h5><i class="fa fa-edit"></i> Danh sách thể loại</h5>
                     </div>
                     <div class="card-block">
                         <table class="table table-striped table-bordered datatable">
                             <thead>
                             <tr>
                                 <th>Stt</th>
-                                <th>Tên chủ đề</th>
+                                <th>Tên thể loại</th>
                                 <th>Ngày đăng ký</th>
                                 <th>Thực thi</th>
                             </tr>
@@ -44,7 +44,5 @@
             </div>
         </div>
     </main>
-
-
 
 @endsection

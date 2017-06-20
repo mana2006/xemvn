@@ -16,6 +16,7 @@
                             <tr>
                                 <th>Ảnh đại diện</th>
                                 <th>Tên thành viên</th>
+                                <th>Biệt danh</th>
                                 <th>Ngày đăng ký</th>
                                 <th>Trạng thái</th>
                                 <th>Thực thi</th>
@@ -32,15 +33,16 @@
                                     <td style="width: 15%"><img height="100px" style=" max-width: 50%;" src="{{ URL::to('/img/smile_user.jpg') }}"></td>
                                 @endif
                                 <td>{{ $member->lastname ." ". $member->firstname}}</td>
+                                <td>{{ $member->nickname }}</td>
                                 <td>{{ $member->created_at }}</td>
                                 <td>
-                                    @if($member->status_id == 1)
+                                    @if($member->statusName->name == 'Active')
                                         <span class="badge badge-success">Active</span>
-                                    @elseif($member->status_id == 2)
+                                    @elseif($member->statusName->name == 'Inactive')
                                         <span class="badge badge-default">Inactive</span>
-                                    @elseif($member->status_id == 3)
+                                    @elseif($member->statusName->name == 'Pending')
                                         <span class="badge badge-warning">Pending</span>
-                                    @elseif($member->status_id == 4)
+                                    @elseif($member->statusName->name == 'Banned')
                                         <span class="badge badge-danger">Banned</span>
                                     @endif
                                 </td>

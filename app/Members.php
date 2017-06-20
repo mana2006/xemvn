@@ -14,7 +14,7 @@ class Members extends Model implements Authenticatable
 
     protected $guard = "members";
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password', 'status', 'created_at', 'updated_at'
+        'firstname', 'lastname', 'nickname', 'email', 'password', 'status', 'created_at', 'updated_at'
     ];
 
     /**

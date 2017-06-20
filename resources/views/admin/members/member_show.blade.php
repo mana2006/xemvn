@@ -27,6 +27,11 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label class="form-control-label" for="nickname"><b>Biệt danh : </b> </label>
+                                                {{$listMember->nickname}}
+                                            </div>
+
+                                            <div class="form-group">
                                                 <p><b>Avatar</b></p>
                                                 <br><br>
                                                 @if($listMember->image)

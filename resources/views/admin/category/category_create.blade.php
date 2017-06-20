@@ -10,7 +10,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <i class="icon-note"></i> Thêm chủ đề
+                                <i class="icon-note"></i> Thêm thể loại
                             </div>
                             <div class="card-block">
                                 <div class="row">
@@ -29,8 +29,8 @@
                                             {{csrf_field()}}
 
                                             <div class="form-group">
-                                                <label class="form-control-label" for="content">Tên chủ đề</label><span class="error">(*)</span>
-                                                <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Tên chủ đề" value="{{ old('category_name') }}">
+                                                <label class="form-control-label" for="content">Tên thể loại</label><span class="error">(*)</span>
+                                                <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Tên thể loại" value="{{ old('category_name') }}">
                                                 @if($errors->has('category_name'))
                                                     <div class="error">{{ $errors->first('category_name') }}</div>
                                                 @endif
