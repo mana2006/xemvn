@@ -36,17 +36,14 @@
 
                                             <div class="form-group">
                                                 <label class="form-control-label" for="title">Nội dung </label>
-                                                <input type="text" class="form-control" id="content" name="content" placeholder="Chủ đề" value="{{ old('content') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true">
-                                                @if($errors->has('content'))
-                                                    <div class="error">{{ $errors->first('content') }}</div>
-                                                @endif
+                                                <input type="text" class="form-control" id="post_content" name="post_content" placeholder="Chủ đề" value="{{ old('post_content') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true">
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="form-control-label" for="content">Biệt danh thành viên</label>
-                                                <input id="member_nickname" name="member_nickname" class="form-control" placeholder="Biệt danh thành viên" value="{{ old('member_nickname') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true"/>
-                                                @if($errors->has('member_nickname'))
-                                                    <div class="error">{{ $errors->first('member_nickname') }}</div>
+                                                <input id="nickname" name="nickname" class="form-control" placeholder="Biệt danh thành viên" value="{{ old('nickname') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true"/>
+                                                @if($errors->has('nickname'))
+                                                    <div class="error">{{ $errors->first('nickname') }}</div>
                                                 @endif
                                             </div>
 
@@ -73,9 +70,9 @@
 
                                             <div class="form-group">
                                                 <label class="form-control-label" for="email">Thể loại</label><span class="error">(*)</span>
-                                                <select id="select" name="status" class="form-control" size="1">
+                                                <select id="select" name="category" class="form-control" size="1">
                                                     @foreach($listCategory as $category)
-                                                        <option value="{{ $category->id }}" {{ old('$category') == $category->id ? "selected" : "" }}>{{$category->name}}</option>
+                                                        <option value="{{ $category->id }}" {{ old('category') == $category->id ? "selected" : "" }}>{{$category->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

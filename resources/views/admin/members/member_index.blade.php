@@ -36,13 +36,13 @@
                                 <td>{{ $member->nickname }}</td>
                                 <td>{{ $member->created_at }}</td>
                                 <td>
-                                    @if($member->statusName->name == 'Active')
+                                    @if($member->statusInfo->name == 'Active')
                                         <span class="badge badge-success">Active</span>
-                                    @elseif($member->statusName->name == 'Inactive')
+                                    @elseif($member->statusInfo->name == 'Inactive')
                                         <span class="badge badge-default">Inactive</span>
-                                    @elseif($member->statusName->name == 'Pending')
+                                    @elseif($member->statusInfo->name == 'Pending')
                                         <span class="badge badge-warning">Pending</span>
-                                    @elseif($member->statusName->name == 'Banned')
+                                    @elseif($member->statusInfo->name == 'Banned')
                                         <span class="badge badge-danger">Banned</span>
                                     @endif
                                 </td>

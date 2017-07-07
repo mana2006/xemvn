@@ -62,12 +62,12 @@
   }
 
     $("#upload_images").change(function(){
-    readURL(this, 'show_image', 'e');
-  });
+        readURL(this, 'show_image', 'e');
+    });
 
-  $("#post_images").change(function(){
-    readURL(this, 'show_image', 'e');
-  });
+    $("#post_images").change(function(){
+        readURL(this, 'show_image', 'e');
+    });
 
   
   
@@ -101,6 +101,13 @@
   * */
   $('.delete_category').click(function (){
     deletePartition(this, 'delete', 'row_category')
+  });
+
+  /*
+   * delete post
+   * */
+  $('.delete_post').click(function (){
+    deletePartition(this, 'delete', 'row_post')
   });
   
   /**

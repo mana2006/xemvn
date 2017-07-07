@@ -16,9 +16,8 @@
  * 
  * */
 
-Route::get('/', function () {
-    return view('layouts.body.index');
-});
+Route::get('/', 'FrontEnd\IndexController@showListPost');
+
 
 Route::get('/unread', function() {
     return view('layouts.body.unread');

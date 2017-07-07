@@ -26,7 +26,7 @@ class Members extends Model implements Authenticatable
         'password', 'remember_token',
     ];
 
-    public function statusName() {
+    public function statusInfo() {
         return $this->belongsTo('App\Status', 'status');
     }
 

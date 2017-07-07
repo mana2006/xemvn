@@ -239,7 +239,9 @@ class AdminUserController extends Controller
 
     private function uploadImage($fileNameUpload) {
         if (Input::file($fileNameUpload) != null) {
-            $destinationPath = 'uploads/avatars/users/';
+            $year = date('Y');
+            $month = date('m');
+            $destinationPath = 'uploads/avatars/users/'.$year.'/'.$month.'/';
             $extension = Input::file($fileNameUpload)->getClientOriginalExtension();
             $fileName = date('Ymd_His') . '.' . $extension;
             Input::file($fileNameUpload)->move($destinationPath, $fileName);
