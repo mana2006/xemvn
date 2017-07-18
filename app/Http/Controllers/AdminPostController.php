@@ -54,11 +54,13 @@ class AdminPostController extends Controller
     {
         $rules = [
             'title' => 'required',
+            'category' => 'required',
             'post_images' => 'required|mimes:jpeg,bmp,png,jpg'
         ];
 
         $message = [
             'title.required' => 'Tiêu đề là trường bắt buộc',
+            'category.required' => 'Thể loại là trường bắt buộc',
             'post_images.required' => 'Hình ảnh là trường bắt buộc',
             'post_images.mimes' => 'Hình ảnh phải thuộc định dạng: jpeg,bmp,png,jpg'
         ];
@@ -95,7 +97,7 @@ class AdminPostController extends Controller
                 ])->first();
                 $post = new Posts();
                 $post->title = $request->title;
-                $post->content = $request->content;
+                $post->content = $request->post_content;
                 $post->members_id = $member->id;
                 $post->image = $fileName;
                 $post->category_id = $request->status;
@@ -111,7 +113,7 @@ class AdminPostController extends Controller
                 ])->first();
                 $post = new Posts();
                 $post->title = $request->title;
-                $post->content = $request->content;
+                $post->content = $request->post_content;
                 $post->user_id = $userId->name;
                 $post->image = $fileName;
                 $post->category_id = $request->status;
@@ -223,10 +225,10 @@ class AdminPostController extends Controller
 
                 $post = Posts::find($id);
                 $post->title = $request->title;
-                $post->content = $request->content;
+                $post->content = $request->post_content;
                 $post->members_id = $member->id;
                 $post->image = $fileName;
-                $post->category_id = $request->status;
+                $post->category_id = $request->category;
                 $post->status_id = $request->status;
                 $post->created_at = date('Y-m-d H:i:s');
                 $post->updated_at = date('Y-m-d H:i:s');
@@ -239,17 +241,17 @@ class AdminPostController extends Controller
                 ])->first();
                 $post = Posts::find($id);
                 $post->title = $request->title;
-                $post->content = $request->content;
+                $post->content = $request->post_content;
                 $post->members_id = $userId->id;
                 $post->image = $fileName;
-                $post->category_id = $request->status;
+                $post->category_id = $request->category;
                 $post->status_id = $request->status;
                 $post->created_at = date('Y-m-d H:i:s');
                 $post->updated_at = date('Y-m-d H:i:s');
                 $post->save();
             }
 
-            $request->session()->flash('alert-success', 'Thành viên đã được đăng ký thành công !!!');
+            $request->session()->flash('alert-success', 'Thành viên đã được cập nhật thành công !!!');
 
             return redirect()->back();
         }

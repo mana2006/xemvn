@@ -75,6 +75,9 @@
                                                         <option value="{{ $category->id }}" {{ old('category') == $category->id ? "selected" : "" }}>{{$category->name}}</option>
                                                     @endforeach
                                                 </select>
+                                                @if($errors->has('category'))
+                                                    <div class="error">{{ $errors->first('category') }}</div>
+                                                @endif
                                             </div>
 
                                             <div class="form-group">

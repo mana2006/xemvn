@@ -37,15 +37,12 @@
 
                                             <div class="form-group">
                                                 <label class="form-control-label" for="title">Nội dung </label>
-                                                <input type="text" class="form-control" id="content" name="content" placeholder="Chủ đề" value="{{ empty(old('content')) ? $post->content : old('content') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true">
+                                                <input type="text" class="form-control" id="post_content" name="post_content" placeholder="Chủ đề" value="{{ empty(old('post_content')) ? $post->content : old('post_content') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true">
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="form-control-label" for="content">Biệt danh thành viên</label>
                                                 <input id="nickname" name="nickname" class="form-control"  value="{{ empty(old('nickname')) ? empty($post->memberInfo->nickname) ? "placeholder='Bài này admin đã mần'" : $post->memberInfo->nickname : old('nickname') }}" aria-describedby="title-error" aria-required="true" aria-invalid="true"/>
-                                                {{--@if($errors->has('nickname'))--}}
-                                                    {{--<div class="error">{{ $errors->first('nickname') }}</div>--}}
-                                                {{--@endif--}}
                                             </div>
 
                                             <div class="form-group">
@@ -79,6 +76,10 @@
                                                     @foreach($listCategory as $category)
                                                         <option value="{{ $category->id }}" {{ (old('category') == $category->id) ? "selected" : ($category->id == $post->category_id) ? "selected" : "" }}>{{$category->name}}</option>
                                                     @endforeach
+
+                                                    @if($errors->has('category'))
+                                                        <div class="error">{{ $errors->first('category') }}</div>
+                                                    @endif
                                                 </select>
                                             </div>
 
