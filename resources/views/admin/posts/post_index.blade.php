@@ -30,9 +30,9 @@
                                 <tr id="row_post{{ $post->id }}">
 
                                     @if($post->image)
-                                        <td style="width: 15%"><img height="100px" style=" max-width: 50%;" src="{{ URL::to('/'.$post->image) }}"></td>
+                                        <td style="width: 15%"><img height="150px" width="100%" style=" max-width: 100%;" src="{{ URL::to('/'.$post->image) }}"></td>
                                     @else
-                                        <td style="width: 15%"><img height="100px" style=" max-width: 50%;" src="{{ URL::to('/img/smile_user.jpg') }}"></td>
+                                        <td style="width: 15%"><img height="150px" width="100%" style=" max-width: 100%;" src="{{ URL::to('/img/smile_user.jpg') }}"></td>
                                     @endif
 
                                     <td>{{ $post->title }}</td>
