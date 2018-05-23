@@ -16,10 +16,13 @@
     {!! Html::style('admin/css/glyphicons-social.css') !!}
     {!! Html::style('admin/css/glyphicons.css') !!}
     {!! Html::style('admin/css/style.css') !!}
+    {!! Html::style('admin/css/style_custom.css') !!}
 
 
 </head>
 
+
+{{-- show view in admin--}}
 @yield('content')
 
 <script type="text/javascript">

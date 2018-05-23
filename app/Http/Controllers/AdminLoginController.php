@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Validator;
+use Laravel\Passport\HasApiTokens;
+use Socialite;
 
 class AdminLoginController extends Controller
 {
-    use AuthenticatesUsers;
-    
+    use AuthenticatesUsers, HasApiTokens;
     /**
      * Where to redirect users after login.
      *
@@ -31,9 +32,21 @@ class AdminLoginController extends Controller
         } else {
             return redirect('admin/index');
         }
-        
+
     }
-    
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        dd($user);
+    }
+
     public function postLogin(Request $request)
     {
         $rules = [
@@ -47,13 +60,13 @@ class AdminLoginController extends Controller
             'password.min' => 'Mật khẩu phải bao gồm tối thiểu 6 ký tự ',
        ];
         $validator = Validator::make($request->all(), $rules, $message);
-        
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         } else {
             $email = $request->input('email');
             $password = $request->input('password');
-            
+
             if (Auth::attempt(['email' => $email, 'password' => $password, 'del_flg' => 0])) {
                 return redirect()->intended('/admin/index');
             } else {

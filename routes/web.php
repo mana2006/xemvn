@@ -13,7 +13,7 @@
 
 /*
  * content
- * 
+ *
  * */
 
 Route::get('/', 'FrontEnd\IndexController@showListPost');
@@ -93,7 +93,7 @@ Route::get('/my_pass', function () {
 
 /*
  * admin
- * 
+ *
  * */
 
 

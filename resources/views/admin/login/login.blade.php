@@ -33,14 +33,28 @@
                                 @if($errors->has('password'))
                                     <p style="color:red">{{$errors->first('password')}}</p>
                                 @endif
+
                                 <div class="row">
                                     <div class="col-6">
-                                        <button type="submit" class="btn btn-primary px-2">Login</button>
+                                        <button type="submit" class="btn btn-primary px-2 btn-login">Login</button>
                                     </div>
                                     <div class="col-6 text-right">
                                         <button type="button" class="btn btn-link px-0">Forgot password?</button>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button type="button" class="btn btn-facebook text" style="margin-bottom: 4px">
+                                            <span>Sign up with Facebook</span>
+                                        </button>
+
+                                        <button type="button" class="btn btn-google-plus text" style="margin-bottom: 4px">
+                                            <span>Sign up with Google</span>
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <div class="card card-inverse card-primary py-3 hidden-md-down" style="width:44%">

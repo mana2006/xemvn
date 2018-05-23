@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class AdminUserController extends Controller
 {
@@ -18,10 +18,11 @@ class AdminUserController extends Controller
 
     public function index()
     {
-        $userList = User::select('id', 'name', 'email', 'created_at')
+        $usersList = DB::table('users')
+            ->select('id', 'name', 'email', 'created_at')
             ->where('del_flg', '<>', 1)
             ->paginate(10);
-        return view('admin.users.user_index', ['users' => $userList]);
+        return view('admin.users.user_index', ['users' => $usersList]);
     }
 
     /**
