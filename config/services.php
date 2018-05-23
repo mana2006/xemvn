@@ -34,5 +34,11 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    
+    'facebook' => [
+        'client_id' => '514374418733627',
+        'client_secret' => 'be89519d9fa6b3c5f4c021462eed9275',
+        'redirect' => 'http://xemvn.app/admin/login',
+    ],
 
 ];

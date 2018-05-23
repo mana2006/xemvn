@@ -13,12 +13,11 @@
 
 /*
  * content
- * 
+ *
  * */
 
-Route::get('/', function () {
-    return view('layouts.body.index');
-});
+Route::get('/', 'FrontEnd\IndexController@showListPost');
+
 
 Route::get('/unread', function() {
     return view('layouts.body.unread');
@@ -36,11 +35,11 @@ Route::get('/hot', function() {
     return view('layouts.body.hot');
 });
 
-Route::get('/login', 'LoginController@getLogin');
+Route::get('/login', 'LoginController@showLogin');
 
-Route::post('/login', 'LoginController@postLogin');
+Route::post('/login', 'LoginController@checkLogin');
 
-Route::get('/logout', 'LoginController@getLogout');
+Route::get('/logout', 'LoginController@logout');
 
 
 Route::get('/old', function() {
@@ -94,12 +93,12 @@ Route::get('/my_pass', function () {
 
 /*
  * admin
- * 
+ *
  * */
 
 
 
-Route::group(['prefix' => 'admin', ], function () {
+Route::group(['prefix' => 'admin'], function () {
     Route::get('login', 'AdminLoginController@getLogin');
 
     Route::post('login', 'AdminLoginController@postLogin');
@@ -109,17 +108,32 @@ Route::group(['prefix' => 'admin', ], function () {
         Route::get('index',  function () {
             return view('admin.dashboard.dashboard');
         });
-    
+
+        /*
+         * For User *
+         * */
+        Route::resource('user', 'AdminUserController');
+        Route::delete('user/delete/{id}', 'AdminUserController@destroy');
+
+        /*
+         * For Members *
+         * */
+        Route::resource('member', 'AdminMemberController');
+        Route::delete('member/delete/{id}', 'AdminMemberController@destroy');
+
+        /*
+         * For Article *
+         * */
+
+        Route::resource('post', 'AdminPostController');
+        Route::delete('post/delete/{id}', 'AdminPostController@destroy');
+
+        /*
+         * For  Category *
+         *  */
+        Route::resource('category', 'AdminCategoryController');
+        Route::delete('category/delete/{id}', 'AdminCategoryController@destroy');
     });
 });
 
 
-
-
-//Route::resource('user', 'UserController');
-//
-//
-//
-//Auth::routes();
-//
-//Route::get('/admin/login', 'HomeController@index')->name('home');

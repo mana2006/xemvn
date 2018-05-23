@@ -2,57 +2,63 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Validator;
 use Illuminate\Support\MessageBag;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Validator;
+use Laravel\Passport\HasApiTokens;
+use Socialite;
 
 class AdminLoginController extends Controller
 {
-    use AuthenticatesUsers;
-
+    use AuthenticatesUsers, HasApiTokens;
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-
+    
     /**
      * Create a new controller instance.
      *
      * @return void
      */
 
-    public function __construct()
+    public function getLogin()
     {
-        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
-    }
-
-    public function getLogin() {
         if (!Auth::check()) {
             return view('admin.login.login');
         } else {
             return redirect('admin/index');
         }
-        
+
     }
 
-    public function postLogin(Request $request) {
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        dd($user);
+    }
+
+    public function postLogin(Request $request)
+    {
         $rules = [
             'email' => 'required|email',
             'password' => 'required|min:6',
-
         ];
-
         $message = [
             'email.required' => 'Email là trường bắt buộc',
             'email.email' => 'Email không hợp lệ',
             'password.required' => 'Mật khẩu là trường bắt buộc',
             'password.min' => 'Mật khẩu phải bao gồm tối thiểu 6 ký tự ',
-
-        ];
+       ];
         $validator = Validator::make($request->all(), $rules, $message);
 
         if ($validator->fails()) {
@@ -61,7 +67,7 @@ class AdminLoginController extends Controller
             $email = $request->input('email');
             $password = $request->input('password');
 
-            if( Auth::attempt(['email' => $email, 'password' =>$password])) {
+            if (Auth::attempt(['email' => $email, 'password' => $password, 'del_flg' => 0])) {
                 return redirect()->intended('/admin/index');
             } else {
                 $errors = new MessageBag(['errorlogin' => 'Email hoặc mật khẩu không đúng']);
@@ -69,10 +75,10 @@ class AdminLoginController extends Controller
             }
         }
     }
-
-    public function getLogout() {
-        Auth::logout();
-        Session::flush();
+    
+    public function getLogout()
+    {
+        Auth::guard('web')->logout();
         return redirect('/admin/login');
     }
 }

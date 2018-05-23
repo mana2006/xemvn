@@ -1,13 +1,12 @@
 @extends('admin.index')
 
 @section('content')
-<body class="flex-row align-items-center">
+    <body class="flex-row align-items-center">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <form class='form' action="/admin/login" name="login_form" method="POST" accept-charset="UTF-8">
                     {!! csrf_field() !!}
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     @if($errors->has('errorlogin'))
                         <div class="alert alert-danger">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -21,8 +20,7 @@
                                 <p class="text-muted">Sign In to your account</p>
                                 <div class="input-group mb-1">
                                     <span class="input-group-addon"><i class="icon-user"></i>
-                                    </span>
-                                    <input type="text" name="email" class="form-control" placeholder="Username">
+                                    </span> <input type="text" name="email" class="form-control" placeholder="Username">
                                 </div>
                                 @if($errors->has('email'))
                                     <p style="color:red">{{$errors->first('email')}}</p>
@@ -35,14 +33,28 @@
                                 @if($errors->has('password'))
                                     <p style="color:red">{{$errors->first('password')}}</p>
                                 @endif
+
                                 <div class="row">
                                     <div class="col-6">
-                                        <button type="submit" class="btn btn-primary px-2">Login</button>
+                                        <button type="submit" class="btn btn-primary px-2 btn-login">Login</button>
                                     </div>
                                     <div class="col-6 text-right">
                                         <button type="button" class="btn btn-link px-0">Forgot password?</button>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button type="button" class="btn btn-facebook text" style="margin-bottom: 4px">
+                                            <span>Sign up with Facebook</span>
+                                        </button>
+
+                                        <button type="button" class="btn btn-google-plus text" style="margin-bottom: 4px">
+                                            <span>Sign up with Google</span>
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <div class="card card-inverse card-primary py-3 hidden-md-down" style="width:44%">
@@ -61,11 +73,10 @@
     </div>
 
 
-
     <!-- Bootstrap and necessary plugins -->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/tether.min.js"></script>
     <script src="js/libs/bootstrap.min.js"></script>
 
-</body>
+    </body>
 @endsection

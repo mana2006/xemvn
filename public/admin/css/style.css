@@ -13,6 +13,16 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
 
+.error {
+  color: red;
+}
+
+.tr_show_image_member{
+    width:10%;
+}
+.show_image_member {
+    max-width: 100%;
+}
 body {
   margin: 0; }
 
